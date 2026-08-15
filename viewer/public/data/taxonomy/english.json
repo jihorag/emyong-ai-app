@@ -1,0 +1,117 @@
+{
+  "subject_id": "english",
+  "subject": "영어",
+  "areas": [
+    {
+      "name": "영어교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "english__edu__00",
+          "title": "언어 습득 이론"
+        },
+        {
+          "id": "english__edu__01",
+          "title": "교수법(청화식·직접식)"
+        },
+        {
+          "id": "english__edu__02",
+          "title": "의사소통 중심 교수법(CLT)"
+        },
+        {
+          "id": "english__edu__03",
+          "title": "과제 중심·TPR"
+        },
+        {
+          "id": "english__edu__04",
+          "title": "오류 분석과 피드백"
+        }
+      ]
+    },
+    {
+      "name": "영어과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "english__curr__00",
+          "title": "영어과 성취기준"
+        },
+        {
+          "id": "english__curr__01",
+          "title": "의사소통 기능"
+        },
+        {
+          "id": "english__curr__02",
+          "title": "2022 개정 주요 변화"
+        }
+      ]
+    },
+    {
+      "name": "기능 지도",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "english__g1__기능_지도_00",
+          "title": "듣기 지도"
+        },
+        {
+          "id": "english__g1__기능_지도_01",
+          "title": "말하기 지도"
+        },
+        {
+          "id": "english__g1__기능_지도_02",
+          "title": "읽기 지도"
+        },
+        {
+          "id": "english__g1__기능_지도_03",
+          "title": "쓰기 지도"
+        }
+      ]
+    },
+    {
+      "name": "언어 요소",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "english__g2__언어_요소_00",
+          "title": "어휘 지도"
+        },
+        {
+          "id": "english__g2__언어_요소_01",
+          "title": "발음·강세 지도"
+        },
+        {
+          "id": "english__g2__언어_요소_02",
+          "title": "문형·문법 지도"
+        }
+      ]
+    },
+    {
+      "name": "수업 운영",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "english__g3__수업_운영_00",
+          "title": "영어 수업 설계"
+        },
+        {
+          "id": "english__g3__수업_운영_01",
+          "title": "게임·활동 활용"
+        },
+        {
+          "id": "english__g3__수업_운영_02",
+          "title": "문화 지도"
+        },
+        {
+          "id": "english__g3__수업_운영_03",
+          "title": "영어과 평가"
+        }
+      ]
+    }
+  ]
+}

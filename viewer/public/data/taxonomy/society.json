@@ -1,0 +1,140 @@
+{
+  "subject_id": "society",
+  "subject": "사회",
+  "areas": [
+    {
+      "name": "사회교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "society__edu__00",
+          "title": "사회과 성격·목표론"
+        },
+        {
+          "id": "society__edu__01",
+          "title": "시민성 교육"
+        },
+        {
+          "id": "society__edu__02",
+          "title": "사회과 탐구"
+        },
+        {
+          "id": "society__edu__03",
+          "title": "개념학습 모형"
+        },
+        {
+          "id": "society__edu__04",
+          "title": "의사결정·논쟁문제 수업 모형"
+        }
+      ]
+    },
+    {
+      "name": "사회과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "society__curr__00",
+          "title": "사회과 내용 체계"
+        },
+        {
+          "id": "society__curr__01",
+          "title": "성취기준 체계"
+        },
+        {
+          "id": "society__curr__02",
+          "title": "2022 개정 주요 변화"
+        }
+      ]
+    },
+    {
+      "name": "지리 영역",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "society__g1__지리_영역_00",
+          "title": "위치와 지도 읽기"
+        },
+        {
+          "id": "society__g1__지리_영역_01",
+          "title": "우리 지역과 국토"
+        },
+        {
+          "id": "society__g1__지리_영역_02",
+          "title": "세계의 여러 지역"
+        },
+        {
+          "id": "society__g1__지리_영역_03",
+          "title": "환경과 인간 생활"
+        }
+      ]
+    },
+    {
+      "name": "역사 영역",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "society__g2__역사_영역_00",
+          "title": "역사 학습의 방법"
+        },
+        {
+          "id": "society__g2__역사_영역_01",
+          "title": "우리 역사의 흐름"
+        },
+        {
+          "id": "society__g2__역사_영역_02",
+          "title": "인물과 문화유산"
+        },
+        {
+          "id": "society__g2__역사_영역_03",
+          "title": "생활사·시대사 지도"
+        }
+      ]
+    },
+    {
+      "name": "일반사회 영역",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "society__g3__일반사회_영역_00",
+          "title": "정치와 민주주의"
+        },
+        {
+          "id": "society__g3__일반사회_영역_01",
+          "title": "법과 규칙"
+        },
+        {
+          "id": "society__g3__일반사회_영역_02",
+          "title": "경제 생활"
+        },
+        {
+          "id": "society__g3__일반사회_영역_03",
+          "title": "사회·문화와 세계화"
+        }
+      ]
+    },
+    {
+      "name": "사회과 방법",
+      "no": 4,
+      "group": "각론",
+      "units": [
+        {
+          "id": "society__g4__사회과_방법_00",
+          "title": "자료 활용과 조사"
+        },
+        {
+          "id": "society__g4__사회과_방법_01",
+          "title": "현장체험·지역화"
+        },
+        {
+          "id": "society__g4__사회과_방법_02",
+          "title": "사회과 평가"
+        }
+      ]
+    }
+  ]
+}

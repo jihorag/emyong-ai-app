@@ -1,0 +1,144 @@
+{
+  "subject_id": "science",
+  "subject": "과학",
+  "areas": [
+    {
+      "name": "과학교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "science__edu__00",
+          "title": "구성주의와 개념변화"
+        },
+        {
+          "id": "science__edu__01",
+          "title": "과학적 탐구와 과정 기능"
+        },
+        {
+          "id": "science__edu__02",
+          "title": "발생학습 모형"
+        },
+        {
+          "id": "science__edu__03",
+          "title": "순환학습 모형"
+        },
+        {
+          "id": "science__edu__04",
+          "title": "POE·발견학습 모형"
+        }
+      ]
+    },
+    {
+      "name": "과학과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "science__curr__00",
+          "title": "과학과 내용 체계"
+        },
+        {
+          "id": "science__curr__01",
+          "title": "성취기준 체계"
+        },
+        {
+          "id": "science__curr__02",
+          "title": "2022 개정 주요 변화"
+        }
+      ]
+    },
+    {
+      "name": "물질",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "science__g1__물질_00",
+          "title": "물질의 성질"
+        },
+        {
+          "id": "science__g1__물질_01",
+          "title": "물질의 상태와 변화"
+        },
+        {
+          "id": "science__g1__물질_02",
+          "title": "산과 염기·용해"
+        },
+        {
+          "id": "science__g1__물질_03",
+          "title": "혼합물의 분리"
+        }
+      ]
+    },
+    {
+      "name": "에너지",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "science__g2__에너지_00",
+          "title": "힘과 운동"
+        },
+        {
+          "id": "science__g2__에너지_01",
+          "title": "전기와 자기"
+        },
+        {
+          "id": "science__g2__에너지_02",
+          "title": "빛과 그림자"
+        },
+        {
+          "id": "science__g2__에너지_03",
+          "title": "소리와 열"
+        }
+      ]
+    },
+    {
+      "name": "생명",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "science__g3__생명_00",
+          "title": "생물의 구조와 기능"
+        },
+        {
+          "id": "science__g3__생명_01",
+          "title": "생물의 한살이"
+        },
+        {
+          "id": "science__g3__생명_02",
+          "title": "생태계와 환경"
+        },
+        {
+          "id": "science__g3__생명_03",
+          "title": "우리 몸의 구조"
+        }
+      ]
+    },
+    {
+      "name": "지구와 우주",
+      "no": 4,
+      "group": "각론",
+      "units": [
+        {
+          "id": "science__g4__지구와_우주_00",
+          "title": "지층과 화석"
+        },
+        {
+          "id": "science__g4__지구와_우주_01",
+          "title": "날씨와 대기"
+        },
+        {
+          "id": "science__g4__지구와_우주_02",
+          "title": "지구와 달"
+        },
+        {
+          "id": "science__g4__지구와_우주_03",
+          "title": "태양계와 별"
+        }
+      ]
+    }
+  ]
+}

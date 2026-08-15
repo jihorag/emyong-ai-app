@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# 푸시 전 회귀 검증 — 깨진 코드가 origin에 올라가는 걸 막는다.
+#
+# 왜 이게 필요한가:
+#   Free 플랜 + 비공개 저장소에서는 브랜치 보호가 잠겨 있어(403), CI가 빨간불이어도
+#   머지를 막을 수 없다. 그래서 강제 지점을 각자 기기로 옮긴다.
+#   조직 Team으로 올려 브랜치 보호를 켜면 이 훅은 "더 빠른 피드백" 역할로 남는다.
+#
+# 설치: npm install 하면 자동 (viewer/package.json 의 prepare 스크립트)
+#       수동으로는  git config core.hooksPath .githooks
+#
+# 건너뛰기: git push --no-verify
+#           급할 때만. CI가 뒤에서 다시 잡는다.
+
+set -uo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+VIEWER="$ROOT/viewer"
+Z="0000000000000000000000000000000000000000"
+
+# ── 이번 푸시가 앱 코드를 건드리는지 확인 ────────────────────
+# 문서만 고쳤으면 40초짜리 검증을 돌릴 이유가 없다.
+touches_app=0
+while read -r _local_ref local_sha _remote_ref remote_sha; do
+  [ "$local_sha" = "$Z" ] && continue                    # 브랜치 삭제
+  if [ "$remote_sha" = "$Z" ]; then
+    range="$local_sha"                                    # 새 브랜치 — 전체로 간주
+    touches_app=1
+    break
+  else
+    range="$remote_sha..$local_sha"
+  fi
+  if git diff --name-only "$range" 2>/dev/null | grep -q '^viewer/'; then
+    touches_app=1
+  fi
+done
+
+if [ "$touches_app" -eq 0 ]; then
+  echo "pre-push: viewer/ 변경 없음 — 검증 건너뜀"
+  exit 0
+fi
+
+# ── 검증 ─────────────────────────────────────────────────────
+if [ ! -d "$VIEWER/node_modules" ]; then
+  echo "pre-push: viewer/node_modules 가 없습니다. npm install 후 다시 푸시하세요."
+  exit 1
+fi
+
+echo "pre-push: npm run verify (lint + build + 회귀 검증) — 약 40초"
+if ( cd "$VIEWER" && npm run verify ); then
+  echo "pre-push: 통과"
+  exit 0
+fi
+
+cat <<'MSG'
+
+────────────────────────────────────────────────────────────
+푸시를 중단했습니다.
+
+  · 프롬프트나 저장 키가 바뀌었다면 — 의도한 변경인지 먼저 확인하세요.
+    구조만 옮기는 작업에서는 절대 바뀌면 안 됩니다.
+    의도한 것이라면 viewer/test/README.md 를 읽고 기준선을 갱신한 뒤,
+    커밋 메시지에 무엇을 왜 바꿨는지 남기세요.
+
+  · 화면 렌더 실패라면 — viewer/test/output/ 에 스크린샷이 있습니다.
+
+  · 정말 급하면  git push --no-verify  로 넘길 수 있습니다.
+    단 CI가 뒤에서 다시 잡습니다.
+────────────────────────────────────────────────────────────
+MSG
+exit 1

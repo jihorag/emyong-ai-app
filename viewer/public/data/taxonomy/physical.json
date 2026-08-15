@@ -1,0 +1,151 @@
+{
+  "subject_id": "physical",
+  "subject": "체육",
+  "areas": [
+    {
+      "name": "체육교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "physical__edu__00",
+          "title": "스포츠 교육 모형"
+        },
+        {
+          "id": "physical__edu__01",
+          "title": "이해 중심 게임 수업(TGfU)"
+        },
+        {
+          "id": "physical__edu__02",
+          "title": "하나로 수업 모형"
+        },
+        {
+          "id": "physical__edu__03",
+          "title": "움직임 교육론"
+        },
+        {
+          "id": "physical__edu__04",
+          "title": "체육과 평가론"
+        }
+      ]
+    },
+    {
+      "name": "체육과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "physical__curr__00",
+          "title": "체육과 내용 체계"
+        },
+        {
+          "id": "physical__curr__01",
+          "title": "성취기준 체계"
+        },
+        {
+          "id": "physical__curr__02",
+          "title": "2022 개정 주요 변화"
+        }
+      ]
+    },
+    {
+      "name": "건강",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "physical__g1__건강_00",
+          "title": "건강과 체력 관리"
+        },
+        {
+          "id": "physical__g1__건강_01",
+          "title": "건강 습관과 위생"
+        },
+        {
+          "id": "physical__g1__건강_02",
+          "title": "성장과 발달"
+        }
+      ]
+    },
+    {
+      "name": "도전",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "physical__g2__도전_00",
+          "title": "속도·거리 도전"
+        },
+        {
+          "id": "physical__g2__도전_01",
+          "title": "동작·표적 도전"
+        },
+        {
+          "id": "physical__g2__도전_02",
+          "title": "자기 기록 도전"
+        }
+      ]
+    },
+    {
+      "name": "경쟁",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "physical__g3__경쟁_00",
+          "title": "영역형 경쟁"
+        },
+        {
+          "id": "physical__g3__경쟁_01",
+          "title": "필드형 경쟁"
+        },
+        {
+          "id": "physical__g3__경쟁_02",
+          "title": "네트형 경쟁"
+        },
+        {
+          "id": "physical__g3__경쟁_03",
+          "title": "태그형 게임"
+        }
+      ]
+    },
+    {
+      "name": "표현",
+      "no": 4,
+      "group": "각론",
+      "units": [
+        {
+          "id": "physical__g4__표현_00",
+          "title": "움직임 표현"
+        },
+        {
+          "id": "physical__g4__표현_01",
+          "title": "리듬·민속 표현"
+        },
+        {
+          "id": "physical__g4__표현_02",
+          "title": "창작 표현"
+        }
+      ]
+    },
+    {
+      "name": "안전",
+      "no": 5,
+      "group": "각론",
+      "units": [
+        {
+          "id": "physical__g5__안전_00",
+          "title": "활동 안전"
+        },
+        {
+          "id": "physical__g5__안전_01",
+          "title": "응급처치"
+        },
+        {
+          "id": "physical__g5__안전_02",
+          "title": "수상·생활 안전"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+# 경로별 자동 리뷰어.
+#
+# 지금은 혼자 푸시하므로 전부 @jihorag 로 둔다.
+# 팀원이 합류하면 아래 "팀 구성 후" 블록의 주석을 풀고, 위 한 줄을 지우면 끝이다.
+#
+# ⚠ 유효한 아이디만 쓸 수 있다. 존재하지 않거나 쓰기 권한 없는 계정을 적으면
+#   GitHub이 "Unknown owner"로 처리하고 그 줄 전체가 무시된다.
+#   검사: gh api /repos/jihorag/emyong-ai/codeowners/errors
+#
+# ⚠ 자동 리뷰어 지정을 "필수"로 만들려면 브랜치 보호가 필요한데,
+#   Free 플랜 + 비공개 저장소에서는 잠겨 있다(403). 조직 Team 또는 Pro 필요.
+#   그전까지 이 파일은 "누구 영역인지"를 문서화하는 역할만 한다.
+
+*                               @jihorag
+
+
+# ─────────────────────────────────────────────────────────────
+# 팀 구성 후 — 위 `* @jihorag` 를 지우고 아래 주석을 푼다.
+# @frontend / @content 자리에 실제 GitHub 아이디를 넣을 것.
+# ─────────────────────────────────────────────────────────────
+#
+# # 기본 — 명시되지 않은 모든 것
+# *                               @jihorag
+#
+# # ── 프론트엔드 영역 ──────────────────────────────────────────
+# /viewer/src/screens/            @frontend
+# /viewer/src/components/         @frontend
+# /viewer/src/styles/             @frontend
+#
+# # ── 백엔드 영역 ──────────────────────────────────────────────
+# /viewer/api/                    @jihorag
+# /viewer/src/data/               @jihorag
+# /viewer/src/prompts/            @jihorag
+# /viewer/src/services/           @jihorag
+# /scripts/                       @jihorag
+#
+# # ── 콘텐츠 (마크다운, 코드 지식 불필요) ──────────────────────
+# /viewer/public/data/study/      @content @jihorag
+#
+# # ── 공용 — 두 담당 모두의 승인이 필요 ────────────────────────
+# /viewer/src/app/                @frontend @jihorag
+# /viewer/src/lib/                @frontend @jihorag
+# /viewer/src/main.jsx            @frontend @jihorag
+# /viewer/test/                   @frontend @jihorag
+# /docs/CONTRACTS.md              @frontend @jihorag
+# /viewer/package.json            @frontend @jihorag

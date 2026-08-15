@@ -1,0 +1,21 @@
+{
+  "onboarding": true,
+  "home.skill": true,
+  "home": true,
+  "learn.subjects": true,
+  "learn.units": true,
+  "learn.unitStages": true,
+  "learn.note": true,
+  "learn.chat": true,
+  "learn.drill": true,
+  "learn.drillDashboard": true,
+  "learn.recallIntro": true,
+  "learn.recall": true,
+  "variant.problem": true,
+  "recall": true,
+  "recall.wrongNote": true,
+  "learn.apply": true,
+  "essay": true,
+  "stats": true,
+  "settings": true
+}

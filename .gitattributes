@@ -1,0 +1,17 @@
+# 개행 정규화 — 세 사람이 서로 다른 OS를 쓸 때 전체 파일이 diff로 뜨는 사고 방지
+* text=auto eol=lf
+
+# 바이너리 (diff 시도 금지)
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.pdf   binary
+*.zip   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.hwp   binary
+
+# 이 파일들은 diff가 커도 정상 — 리뷰 시 접어서 보도록 표시
+viewer/public/data/**   linguist-generated=true
+viewer/package-lock.json linguist-generated=true

@@ -1,0 +1,139 @@
+{
+  "subject_id": "practical",
+  "subject": "실과",
+  "areas": [
+    {
+      "name": "실과교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "practical__edu__00",
+          "title": "실과 성격·목표"
+        },
+        {
+          "id": "practical__edu__01",
+          "title": "실천적 문제 중심 수업"
+        },
+        {
+          "id": "practical__edu__02",
+          "title": "체험·실습 지도"
+        }
+      ]
+    },
+    {
+      "name": "실과과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "practical__curr__00",
+          "title": "실과 내용 체계"
+        },
+        {
+          "id": "practical__curr__01",
+          "title": "성취기준 체계"
+        },
+        {
+          "id": "practical__curr__02",
+          "title": "2022 개정 주요 변화"
+        }
+      ]
+    },
+    {
+      "name": "인간발달과 가족",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "practical__g1__인간발달과_가족_00",
+          "title": "아동 발달의 이해"
+        },
+        {
+          "id": "practical__g1__인간발달과_가족_01",
+          "title": "가족과 관계"
+        },
+        {
+          "id": "practical__g1__인간발달과_가족_02",
+          "title": "생애 설계"
+        }
+      ]
+    },
+    {
+      "name": "가정생활과 안전",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "practical__g2__가정생활과_안전_00",
+          "title": "옷 입기와 관리"
+        },
+        {
+          "id": "practical__g2__가정생활과_안전_01",
+          "title": "식생활과 영양"
+        },
+        {
+          "id": "practical__g2__가정생활과_안전_02",
+          "title": "생활 안전과 응급처치"
+        }
+      ]
+    },
+    {
+      "name": "자원관리와 자립",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "practical__g3__자원관리와_자립_00",
+          "title": "용돈·소비 생활"
+        },
+        {
+          "id": "practical__g3__자원관리와_자립_01",
+          "title": "생활 자원 관리"
+        },
+        {
+          "id": "practical__g3__자원관리와_자립_02",
+          "title": "일과 진로"
+        }
+      ]
+    },
+    {
+      "name": "기술·발명",
+      "no": 4,
+      "group": "각론",
+      "units": [
+        {
+          "id": "practical__g4__기술_발명_00",
+          "title": "수송·제작 기술"
+        },
+        {
+          "id": "practical__g4__기술_발명_01",
+          "title": "발명과 문제 해결"
+        },
+        {
+          "id": "practical__g4__기술_발명_02",
+          "title": "생활 속 기술"
+        }
+      ]
+    },
+    {
+      "name": "정보",
+      "no": 5,
+      "group": "각론",
+      "units": [
+        {
+          "id": "practical__g5__정보_00",
+          "title": "소프트웨어와 알고리즘"
+        },
+        {
+          "id": "practical__g5__정보_01",
+          "title": "피지컬 컴퓨팅·로봇"
+        },
+        {
+          "id": "practical__g5__정보_02",
+          "title": "디지털 윤리"
+        }
+      ]
+    }
+  ]
+}

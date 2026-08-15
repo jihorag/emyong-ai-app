@@ -1,0 +1,741 @@
+{
+  "subject_id": "math",
+  "subject": "수학",
+  "areas": [
+    {
+      "name": "수학교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "math__edu__00",
+          "title": "베르트하이머",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학_교육론.md"
+        },
+        {
+          "id": "math__edu__01",
+          "title": "피아제",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학_교육론.md"
+        },
+        {
+          "id": "math__edu__02",
+          "title": "딘즈",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학_교육론.md"
+        },
+        {
+          "id": "math__edu__03",
+          "title": "부르너",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학_교육론.md"
+        },
+        {
+          "id": "math__edu__04",
+          "title": "프로이덴탈",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학_교육론.md"
+        },
+        {
+          "id": "math__edu__05",
+          "title": "반 힐",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학_교육론.md"
+        },
+        {
+          "id": "math__edu__06",
+          "title": "스켐프",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학_교육론.md"
+        },
+        {
+          "id": "math__edu__07",
+          "title": "폴리아",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학_교육론.md"
+        },
+        {
+          "id": "math__edu__08",
+          "title": "오수벨",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학_교육론.md"
+        }
+      ]
+    },
+    {
+      "name": "수학 지도서 총론",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "math__guide__00",
+          "title": "2022 개정 수학 교육과정의 교과 역량",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학과_지도서_총론.md"
+        },
+        {
+          "id": "math__guide__01",
+          "title": "2022 개정 수학 교육과정의 영역별 주요 변화",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학과_지도서_총론.md"
+        },
+        {
+          "id": "math__guide__02",
+          "title": "수학 교육의 필요성과 가치",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학과_지도서_총론.md"
+        },
+        {
+          "id": "math__guide__03",
+          "title": "수학적 지식의 특성",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학과_지도서_총론.md"
+        },
+        {
+          "id": "math__guide__04",
+          "title": "수학적 사고",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학과_지도서_총론.md"
+        },
+        {
+          "id": "math__guide__05",
+          "title": "초등학교 수학과 수업 모형과 교수·학습 과정안 예시",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학과_지도서_총론.md"
+        }
+      ]
+    },
+    {
+      "name": "수학과 교육과정",
+      "no": "III",
+      "group": null,
+      "units": [
+        {
+          "id": "math__curr__00",
+          "title": "성격 및 목표",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학과_교육과정.md"
+        },
+        {
+          "id": "math__curr__01",
+          "title": "내용 체계 및 성취기준",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학과_교육과정.md"
+        },
+        {
+          "id": "math__curr__02",
+          "title": "교수·학습 및 평가",
+          "code": null,
+          "study_book": "B기본이론",
+          "study_file": "ckn_B기본이론_수학과_교육과정.md"
+        }
+      ]
+    },
+    {
+      "name": "수와 연산",
+      "no": "1",
+      "group": "각론",
+      "units": [
+        {
+          "id": "math__수와_연산__수와_연산_영역_및_자연수_체계_개관",
+          "title": "📌 수와 연산 영역 및 자연수 체계 개관",
+          "code": null,
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_개관_수와_연산_영역_및_자연수_체계_개관.md"
+        },
+        {
+          "id": "math__수와_연산__자연수의_덧셈_뺄셈_개관",
+          "title": "📌 자연수의 덧셈-뺄셈 개관",
+          "code": null,
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_개관_자연수의_덧셈_뺄셈_개관.md"
+        },
+        {
+          "id": "math__수와_연산__자연수의_곱셈_나눗셈_개관",
+          "title": "📌 자연수의 곱셈-나눗셈 개관",
+          "code": null,
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_개관_자연수의_곱셈_나눗셈_개관.md"
+        },
+        {
+          "id": "math__수와_연산__분수_개관",
+          "title": "📌 분수 개관",
+          "code": null,
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_개관_분수_개관.md"
+        },
+        {
+          "id": "math__수와_연산__소수_개관",
+          "title": "📌 소수 개관",
+          "code": null,
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_개관_소수_개관.md"
+        },
+        {
+          "id": "math__수와_연산__1_1_1_9까지의_수",
+          "title": "1학년 - 9까지의 수",
+          "code": "1-1-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_1_1_9까지의_수.md"
+        },
+        {
+          "id": "math__수와_연산__1_1_3_덧셈과_뺄셈",
+          "title": "1학년 - 덧셈과 뺄셈",
+          "code": "1-1-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_1_3_덧셈과_뺄셈.md"
+        },
+        {
+          "id": "math__수와_연산__1_1_5_50까지의_수",
+          "title": "1학년 - 50까지의 수",
+          "code": "1-1-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_1_5_50까지의_수.md"
+        },
+        {
+          "id": "math__수와_연산__1_2_1_100까지의_수",
+          "title": "1학년 - 100까지의 수",
+          "code": "1-2-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_2_15_100까지의_수.md"
+        },
+        {
+          "id": "math__수와_연산__1_2_2_덧셈과_뺄셈_1",
+          "title": "1학년 - 덧셈과 뺄셈(1)",
+          "code": "1-2-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_2_2_덧셈과_뺄셈_1.md"
+        },
+        {
+          "id": "math__수와_연산__1_2_4_덧셈과_뺄셈_2",
+          "title": "1학년 - 덧셈과 뺄셈(2)",
+          "code": "1-2-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_2_4_덧셈과_뺄셈_2.md"
+        },
+        {
+          "id": "math__수와_연산__1_2_6_덧셈과_뺄셈_3",
+          "title": "1학년 - 덧셈과 뺄셈(3)",
+          "code": "1-2-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_2_6_덧셈과_뺄셈_3.md"
+        },
+        {
+          "id": "math__수와_연산__2_1_1_세_자리_수",
+          "title": "2학년 - 세 자리 수",
+          "code": "2-1-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_1_1_세_자리_수.md"
+        },
+        {
+          "id": "math__수와_연산__2_1_3_덧셈과_뺄셈",
+          "title": "2학년 - 덧셈과 뺄셈",
+          "code": "2-1-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_1_3_덧셈과_뺄셈.md"
+        },
+        {
+          "id": "math__수와_연산__2_1_6_곱셈",
+          "title": "2학년 - 곱셈",
+          "code": "2-1-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_1_6_곱셈.md"
+        },
+        {
+          "id": "math__수와_연산__2_2_1_네_자리_수",
+          "title": "2학년 - 네 자리 수",
+          "code": "2-2-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_2_1_네_자리_수.md"
+        },
+        {
+          "id": "math__수와_연산__2_2_2_곱셈구구",
+          "title": "2학년 - 곱셈구구",
+          "code": "2-2-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_2_2_곱셈구구.md"
+        },
+        {
+          "id": "math__수와_연산__3_1_1_덧셈과_뺄셈",
+          "title": "3학년 - 덧셈과 뺄셈",
+          "code": "3-1-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_1_3_덧셈과_뺄셈.md"
+        },
+        {
+          "id": "math__수와_연산__3_1_3_나눗셈",
+          "title": "3학년 - 나눗셈",
+          "code": "3-1-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_1_3_나눗셈.md"
+        },
+        {
+          "id": "math__수와_연산__3_1_4_곱셈",
+          "title": "3학년 - 곱셈",
+          "code": "3-1-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_1_4_곱셈.md"
+        },
+        {
+          "id": "math__수와_연산__3_1_6_분수와_소수",
+          "title": "3학년 - 분수와 소수",
+          "code": "3-1-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_1_6_분수와_소수.md"
+        },
+        {
+          "id": "math__수와_연산__3_2_1_곱셈",
+          "title": "3학년 - 곱셈",
+          "code": "3-2-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_2_1_곱셈.md"
+        },
+        {
+          "id": "math__수와_연산__3_2_2_나눗셈",
+          "title": "3학년 - 나눗셈",
+          "code": "3-2-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_2_2_나눗셈.md"
+        },
+        {
+          "id": "math__수와_연산__3_2_4_분수",
+          "title": "3학년 - 분수",
+          "code": "3-2-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_2_4_분수.md"
+        },
+        {
+          "id": "math__수와_연산__4_1_1_큰_수",
+          "title": "4학년 - 큰 수",
+          "code": "4-1-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_1_15_큰_수.md"
+        },
+        {
+          "id": "math__수와_연산__4_1_3_곱셈과_나눗셈_5_1_1_자연수의_혼합_계산",
+          "title": "4학년 - 곱셈과 나눗셈 / 5-1-1. 자연수의 혼합 계산",
+          "code": "4-1-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_1_3_곱셈과_나눗셈.md"
+        },
+        {
+          "id": "math__수와_연산__4_2_1_분수의_덧셈과_뺄셈",
+          "title": "4학년 - 분수의 덧셈과 뺄셈",
+          "code": "4-2-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_2_15_분수의_덧셈과_뺄셈.md"
+        },
+        {
+          "id": "math__수와_연산__4_2_3_소수의_덧셈과_뺄셈",
+          "title": "4학년 - 소수의 덧셈과 뺄셈",
+          "code": "4-2-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_2_3_소수의_덧셈과_뺄셈.md"
+        },
+        {
+          "id": "math__수와_연산__5_1_2_약수와_배수",
+          "title": "5학년 - 약수와 배수",
+          "code": "5-1-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_1_2_약수와_배수.md"
+        },
+        {
+          "id": "math__수와_연산__5_1_4_약분과_통분",
+          "title": "5학년 - 약분과 통분",
+          "code": "5-1-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_1_4_약분과_통분.md"
+        },
+        {
+          "id": "math__수와_연산__5_1_5_분수의_덧셈과_뺄셈",
+          "title": "5학년 - 분수의 덧셈과 뺄셈",
+          "code": "5-1-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_1_5_분수의_덧셈과_뺄셈.md"
+        },
+        {
+          "id": "math__수와_연산__5_2_1_수의_범위와_어림하기",
+          "title": "5학년 - 수의 범위와 어림하기",
+          "code": "5-2-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_2_1_수의_범위와_어림하기.md"
+        },
+        {
+          "id": "math__수와_연산__5_2_2_분수의_곱셈",
+          "title": "5학년 - 분수의 곱셈",
+          "code": "5-2-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_2_2_분수의_곱셈.md"
+        },
+        {
+          "id": "math__수와_연산__5_2_4_소수의_곱셈",
+          "title": "5학년 - 소수의 곱셈",
+          "code": "5-2-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_2_4_소수의_곱셈.md"
+        },
+        {
+          "id": "math__수와_연산__6_1_1_분수의_나눗셈",
+          "title": "6학년 - 분수의 나눗셈",
+          "code": "6-1-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_1_15_분수의_나눗셈.md"
+        },
+        {
+          "id": "math__수와_연산__6_1_3_소수의_나눗셈",
+          "title": "6학년 - 소수의 나눗셈",
+          "code": "6-1-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_1_3_소수의_나눗셈.md"
+        },
+        {
+          "id": "math__수와_연산__6_2_1_분수의_나눗셈",
+          "title": "6학년 - 분수의 나눗셈",
+          "code": "6-2-1",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_2_1_분수의_나눗셈.md"
+        },
+        {
+          "id": "math__수와_연산__6_2_2_소수의_나눗셈",
+          "title": "6학년 - 소수의 나눗셈",
+          "code": "6-2-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_2_2_소수의_나눗셈.md"
+        }
+      ]
+    },
+    {
+      "name": "변화와 관계",
+      "no": "2",
+      "group": "각론",
+      "units": [
+        {
+          "id": "math__변화와_관계__변화와_관계_영역_개관",
+          "title": "📌 변화와 관계 영역 개관",
+          "code": null,
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_개관_변화와_관계_영역_개관.md"
+        },
+        {
+          "id": "math__변화와_관계__1_2_5_규칙_찾기",
+          "title": "1학년 - 규칙 찾기",
+          "code": "1-2-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_2_5_규칙_찾기.md"
+        },
+        {
+          "id": "math__변화와_관계__2_2_6_규칙_찾기",
+          "title": "2학년 - 규칙 찾기",
+          "code": "2-2-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_2_6_규칙_찾기.md"
+        },
+        {
+          "id": "math__변화와_관계__4_1_6_규칙_찾기",
+          "title": "4학년 - 규칙 찾기",
+          "code": "4-1-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_1_6_규칙_찾기.md"
+        },
+        {
+          "id": "math__변화와_관계__5_1_3_대응_관계",
+          "title": "5학년 - 대응 관계",
+          "code": "5-1-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_1_3_대응_관계.md"
+        },
+        {
+          "id": "math__변화와_관계__6_1_4_비와_비율",
+          "title": "6학년 - 비와 비율",
+          "code": "6-1-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_1_4_비와_비율.md"
+        },
+        {
+          "id": "math__변화와_관계__6_2_4_비례식과_비례배분",
+          "title": "6학년 - 비례식과 비례배분",
+          "code": "6-2-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_2_4_비례식과_비례배분.md"
+        }
+      ]
+    },
+    {
+      "name": "도형",
+      "no": "3",
+      "group": "각론",
+      "units": [
+        {
+          "id": "math__도형과_측정__도형_Part_개관",
+          "title": "📌 도형 Part 개관",
+          "code": null,
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_개관_도형_Part_개관.md"
+        },
+        {
+          "id": "math__도형과_측정__1_1_2_여러_가지_모양",
+          "title": "1학년 - 여러 가지 모양",
+          "code": "1-1-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_1_2_여러_가지_모양.md"
+        },
+        {
+          "id": "math__도형과_측정__1_2_3_모양과_시각",
+          "title": "1학년 - 모양과 시각",
+          "code": "1-2-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_2_3_모양과_시각.md"
+        },
+        {
+          "id": "math__도형과_측정__2_1_2_여러_가지_도형",
+          "title": "2학년 - 여러 가지 도형",
+          "code": "2-1-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_1_2_여러_가지_도형.md"
+        },
+        {
+          "id": "math__도형과_측정__3_1_2_평면도형",
+          "title": "3학년 - 평면도형",
+          "code": "3-1-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_1_2_평면도형.md"
+        },
+        {
+          "id": "math__도형과_측정__3_2_3_원",
+          "title": "3학년 - 원",
+          "code": "3-2-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_2_3_원.md"
+        },
+        {
+          "id": "math__도형과_측정__4_1_4_평면도형의_이동",
+          "title": "4학년 - 평면도형의 이동",
+          "code": "4-1-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_1_4_평면도형의_이동.md"
+        },
+        {
+          "id": "math__도형과_측정__4_2_2_삼각형",
+          "title": "4학년 - 삼각형",
+          "code": "4-2-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_2_2_삼각형.md"
+        },
+        {
+          "id": "math__도형과_측정__4_2_4_사각형",
+          "title": "4학년 - 사각형",
+          "code": "4-2-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_2_4_사각형.md"
+        },
+        {
+          "id": "math__도형과_측정__4_2_6_다각형",
+          "title": "4학년 - 다각형",
+          "code": "4-2-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_2_6_다각형.md"
+        },
+        {
+          "id": "math__도형과_측정__5_2_3_합동과_대칭",
+          "title": "5학년 - 합동과 대칭",
+          "code": "5-2-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_2_3_합동과_대칭.md"
+        },
+        {
+          "id": "math__도형과_측정__5_2_5_직육면체",
+          "title": "5학년 - 직육면체",
+          "code": "5-2-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_2_5_직육면체.md"
+        },
+        {
+          "id": "math__도형과_측정__6_1_2_각기둥과_각뿔",
+          "title": "6학년 - 각기둥과 각뿔",
+          "code": "6-1-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_1_2_각기둥과_각뿔.md"
+        },
+        {
+          "id": "math__도형과_측정__6_2_3_공간과_입체",
+          "title": "6학년 - 공간과 입체",
+          "code": "6-2-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_2_3_공간과_입체.md"
+        },
+        {
+          "id": "math__도형과_측정__6_2_6_원기둥_원뿔_구",
+          "title": "6학년 - 원기둥, 원뿔, 구",
+          "code": "6-2-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_2_6_원기둥_원뿔_구.md"
+        }
+      ]
+    },
+    {
+      "name": "측정",
+      "no": "4",
+      "group": "각론",
+      "units": [
+        {
+          "id": "math__도형과_측정__측정_Part_개관",
+          "title": "📌 측정 Part 개관",
+          "code": null,
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_개관_측정_Part_개관.md"
+        },
+        {
+          "id": "math__도형과_측정__1_1_4_비교하기",
+          "title": "1학년 - 비교하기",
+          "code": "1-1-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_1_1_4_비교하기.md"
+        },
+        {
+          "id": "math__도형과_측정__2_1_4_길이_재기",
+          "title": "2학년 - 길이 재기",
+          "code": "2-1-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_1_4_길이_재기.md"
+        },
+        {
+          "id": "math__도형과_측정__2_2_3_길이_재기",
+          "title": "2학년 - 길이 재기",
+          "code": "2-2-3",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_2_3_길이_재기.md"
+        },
+        {
+          "id": "math__도형과_측정__2_2_4_시각과_시간",
+          "title": "2학년 - 시각과 시간",
+          "code": "2-2-4",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_2_4_시각과_시간.md"
+        },
+        {
+          "id": "math__도형과_측정__3_1_5_길이와_시간",
+          "title": "3학년 - 길이와 시간",
+          "code": "3-1-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_1_5_길이와_시간.md"
+        },
+        {
+          "id": "math__도형과_측정__3_2_5_들이와_무게",
+          "title": "3학년 - 들이와 무게",
+          "code": "3-2-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_2_5_들이와_무게.md"
+        },
+        {
+          "id": "math__도형과_측정__4_1_2_각도",
+          "title": "4학년 - 각도",
+          "code": "4-1-2",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_1_2_각도.md"
+        },
+        {
+          "id": "math__도형과_측정__5_1_6_다각형의_둘레와_넓이",
+          "title": "5학년 - 다각형의 둘레와 넓이",
+          "code": "5-1-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_1_6_다각형의_둘레와_넓이.md"
+        },
+        {
+          "id": "math__도형과_측정__6_1_6_직육면체의_부피와_겉넓이",
+          "title": "6학년 - 직육면체의 부피와 겉넓이",
+          "code": "6-1-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_1_6_직육면체의_부피와_겉넓이.md"
+        },
+        {
+          "id": "math__도형과_측정__6_2_5_원의_둘레와_넓이",
+          "title": "6학년 - 원의 둘레와 넓이",
+          "code": "6-2-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_2_5_원의_둘레와_넓이.md"
+        }
+      ]
+    },
+    {
+      "name": "자료와 가능성",
+      "no": "5",
+      "group": "각론",
+      "units": [
+        {
+          "id": "math__자료와_가능성__자료와_가능성_영역_개관",
+          "title": "📌 자료와 가능성 영역 개관",
+          "code": null,
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_개관_자료와_가능성_영역_개관.md"
+        },
+        {
+          "id": "math__자료와_가능성__2_1_5_분류하기",
+          "title": "2학년 - 분류하기",
+          "code": "2-1-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_1_5_분류하기.md"
+        },
+        {
+          "id": "math__자료와_가능성__2_2_5_표와_그래프",
+          "title": "2학년 - 표와 그래프",
+          "code": "2-2-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_2_2_5_표와_그래프.md"
+        },
+        {
+          "id": "math__자료와_가능성__3_2_6_그림그래프",
+          "title": "3학년 - 그림그래프",
+          "code": "3-2-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_3_2_6_그림그래프.md"
+        },
+        {
+          "id": "math__자료와_가능성__4_1_5_막대그래프",
+          "title": "4학년 - 막대그래프",
+          "code": "4-1-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_1_5_막대그래프.md"
+        },
+        {
+          "id": "math__자료와_가능성__4_2_5_꺾은선그래프",
+          "title": "4학년 - 꺾은선그래프",
+          "code": "4-2-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_4_2_5_꺾은선그래프.md"
+        },
+        {
+          "id": "math__자료와_가능성__5_2_6_평균과_가능성",
+          "title": "5학년 - 평균과 가능성",
+          "code": "5-2-6",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_5_2_6_평균과_가능성.md"
+        },
+        {
+          "id": "math__자료와_가능성__6_1_5_여러_가지_그래프",
+          "title": "6학년 - 여러 가지 그래프",
+          "code": "6-1-5",
+          "study_book": "C각론완성",
+          "study_file": "ckn_C각론완성_6_1_5_여러_가지_그래프.md"
+        }
+      ]
+    }
+  ]
+}

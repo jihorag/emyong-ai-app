@@ -1,0 +1,124 @@
+{
+  "subject_id": "integrate",
+  "subject": "통합",
+  "areas": [
+    {
+      "name": "통합교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "integrate__edu__00",
+          "title": "통합교육의 유형"
+        },
+        {
+          "id": "integrate__edu__01",
+          "title": "주제 중심 통합"
+        },
+        {
+          "id": "integrate__edu__02",
+          "title": "바슬즈(바른·슬기로운·즐거운) 성격"
+        }
+      ]
+    },
+    {
+      "name": "통합과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "integrate__curr__00",
+          "title": "통합교과 내용 체계"
+        },
+        {
+          "id": "integrate__curr__01",
+          "title": "성취기준 체계"
+        },
+        {
+          "id": "integrate__curr__02",
+          "title": "2022 개정 주요 변화"
+        }
+      ]
+    },
+    {
+      "name": "바른 생활",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "integrate__g1__바른_생활_00",
+          "title": "생활 습관과 규칙"
+        },
+        {
+          "id": "integrate__g1__바른_생활_01",
+          "title": "안전한 생활"
+        },
+        {
+          "id": "integrate__g1__바른_생활_02",
+          "title": "더불어 사는 삶"
+        }
+      ]
+    },
+    {
+      "name": "슬기로운 생활",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "integrate__g2__슬기로운_생활_00",
+          "title": "관찰과 탐구"
+        },
+        {
+          "id": "integrate__g2__슬기로운_생활_01",
+          "title": "자연과 계절"
+        },
+        {
+          "id": "integrate__g2__슬기로운_생활_02",
+          "title": "우리 주변 살펴보기"
+        }
+      ]
+    },
+    {
+      "name": "즐거운 생활",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "integrate__g3__즐거운_생활_00",
+          "title": "놀이와 표현"
+        },
+        {
+          "id": "integrate__g3__즐거운_생활_01",
+          "title": "노래와 리듬"
+        },
+        {
+          "id": "integrate__g3__즐거운_생활_02",
+          "title": "만들기와 꾸미기"
+        }
+      ]
+    },
+    {
+      "name": "주제별 통합",
+      "no": 4,
+      "group": "각론",
+      "units": [
+        {
+          "id": "integrate__g4__주제별_통합_00",
+          "title": "학교"
+        },
+        {
+          "id": "integrate__g4__주제별_통합_01",
+          "title": "봄·여름·가을·겨울"
+        },
+        {
+          "id": "integrate__g4__주제별_통합_02",
+          "title": "우리나라"
+        },
+        {
+          "id": "integrate__g4__주제별_통합_03",
+          "title": "마을과 사람들"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: viewer
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: viewer/package-lock.json
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      # 회귀 검증은 Chrome이 필요하다. 로컬은 설치된 Chrome을 쓰지만(channel: 'chrome')
+      # CI 러너엔 없으므로 Playwright의 chromium을 받아서 쓴다.
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Smoke + 회귀 검증
+        run: npm run smoke
+        env:
+          PLAYWRIGHT_CHANNEL: chromium
+
+      # 실패했을 때 화면을 눈으로 확인할 수 있게
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: viewer/test/output/
+          retention-days: 7

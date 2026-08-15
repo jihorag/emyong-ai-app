@@ -1,0 +1,116 @@
+{
+  "subject_id": "creative",
+  "subject": "창체",
+  "areas": [
+    {
+      "name": "창체교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "creative__edu__00",
+          "title": "창의적 체험활동의 성격·목표"
+        },
+        {
+          "id": "creative__edu__01",
+          "title": "창체 편성·운영"
+        }
+      ]
+    },
+    {
+      "name": "창체과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "creative__curr__00",
+          "title": "창체 영역 체계"
+        },
+        {
+          "id": "creative__curr__01",
+          "title": "성취기준(활동목표)"
+        },
+        {
+          "id": "creative__curr__02",
+          "title": "2022 개정 주요 변화"
+        }
+      ]
+    },
+    {
+      "name": "자율·자치활동",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "creative__g1__자율_자치활동_00",
+          "title": "적응·기초 소양 활동"
+        },
+        {
+          "id": "creative__g1__자율_자치활동_01",
+          "title": "자치·회의 활동"
+        },
+        {
+          "id": "creative__g1__자율_자치활동_02",
+          "title": "행사 활동"
+        }
+      ]
+    },
+    {
+      "name": "동아리활동",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "creative__g2__동아리활동_00",
+          "title": "학술·문화 동아리"
+        },
+        {
+          "id": "creative__g2__동아리활동_01",
+          "title": "예술·체육 동아리"
+        },
+        {
+          "id": "creative__g2__동아리활동_02",
+          "title": "실습·노작 동아리"
+        }
+      ]
+    },
+    {
+      "name": "진로활동",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "creative__g3__진로활동_00",
+          "title": "자기 이해 활동"
+        },
+        {
+          "id": "creative__g3__진로활동_01",
+          "title": "진로 탐색 활동"
+        },
+        {
+          "id": "creative__g3__진로활동_02",
+          "title": "진로 설계 활동"
+        }
+      ]
+    },
+    {
+      "name": "안전·계기",
+      "no": 4,
+      "group": "각론",
+      "units": [
+        {
+          "id": "creative__g4__안전_계기_00",
+          "title": "안전 교육"
+        },
+        {
+          "id": "creative__g4__안전_계기_01",
+          "title": "계기 교육"
+        },
+        {
+          "id": "creative__g4__안전_계기_02",
+          "title": "봉사 활동"
+        }
+      ]
+    }
+  ]
+}

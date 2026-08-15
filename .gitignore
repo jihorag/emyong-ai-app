@@ -1,0 +1,48 @@
+# ─────────────────────────────────────────────────────────────
+# 이묭AI — 루트 .gitignore
+#
+# 원칙: 저장소에는 "코드와 배포에 필요한 것"만 둔다.
+#   · 원본 교재·기출 PDF와 OCR 중간 산출물은 저장소 밖(../임고닷컴-원본자료/)에 둔다.
+#     경로는 scripts/paths.py 한 곳에서만 정한다. docs/DATA_PIPELINE.md 참고.
+#   · 앱이 런타임에 fetch하는 viewer/public/data는 반드시 포함한다.
+# ─────────────────────────────────────────────────────────────
+
+# ── 의존성 · 빌드 ──
+node_modules/
+dist/
+dist-ssr/
+.vercel/
+
+# ── 시크릿 ──
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ── 컴파일된 바이너리 (소스가 있으므로 재빌드 가능) ──
+#   swiftc -O scripts/vision_ocr.swift    -o scripts/vision_ocr
+#   swiftc -O scripts/cookienet_ocr.swift -o scripts/bin/cookienet_ocr
+/scripts/vision_ocr
+/scripts/bin/
+
+# ── 로그 ──
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ── OS · 에디터 ──
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# ── Python (scripts/) ──
+__pycache__/
+*.py[cod]
+.venv/
+venv/

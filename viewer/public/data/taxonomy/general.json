@@ -1,0 +1,144 @@
+{
+  "subject_id": "general",
+  "subject": "총론",
+  "areas": [
+    {
+      "name": "총론교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "general__edu__00",
+          "title": "교육과정(타일러·브루너)"
+        },
+        {
+          "id": "general__edu__01",
+          "title": "교육심리(발달·학습·동기)"
+        },
+        {
+          "id": "general__edu__02",
+          "title": "교육평가"
+        },
+        {
+          "id": "general__edu__03",
+          "title": "교육방법·공학"
+        },
+        {
+          "id": "general__edu__04",
+          "title": "생활지도와 상담"
+        },
+        {
+          "id": "general__edu__05",
+          "title": "교육행정"
+        },
+        {
+          "id": "general__edu__06",
+          "title": "교육사회학"
+        },
+        {
+          "id": "general__edu__07",
+          "title": "교육철학·교육사"
+        }
+      ]
+    },
+    {
+      "name": "총론과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "general__curr__00",
+          "title": "2022 개정 총론 핵심역량"
+        },
+        {
+          "id": "general__curr__01",
+          "title": "교육과정 편성·운영"
+        },
+        {
+          "id": "general__curr__02",
+          "title": "범교과 학습 주제"
+        }
+      ]
+    },
+    {
+      "name": "교수·학습",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "general__g1__교수_학습_00",
+          "title": "수업 설계와 모형"
+        },
+        {
+          "id": "general__g1__교수_학습_01",
+          "title": "동기 유발과 발문"
+        },
+        {
+          "id": "general__g1__교수_학습_02",
+          "title": "협동학습·프로젝트"
+        },
+        {
+          "id": "general__g1__교수_학습_03",
+          "title": "에듀테크 활용"
+        }
+      ]
+    },
+    {
+      "name": "평가",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "general__g2__평가_00",
+          "title": "평가의 유형"
+        },
+        {
+          "id": "general__g2__평가_01",
+          "title": "수행평가와 루브릭"
+        },
+        {
+          "id": "general__g2__평가_02",
+          "title": "과정 중심 평가"
+        }
+      ]
+    },
+    {
+      "name": "학급 운영",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "general__g3__학급_운영_00",
+          "title": "학급 경영"
+        },
+        {
+          "id": "general__g3__학급_운영_01",
+          "title": "생활지도·상담"
+        },
+        {
+          "id": "general__g3__학급_운영_02",
+          "title": "학부모·관계"
+        }
+      ]
+    },
+    {
+      "name": "교직 실무",
+      "no": 4,
+      "group": "각론",
+      "units": [
+        {
+          "id": "general__g4__교직_실무_00",
+          "title": "교육정책과 법규"
+        },
+        {
+          "id": "general__g4__교직_실무_01",
+          "title": "교권과 윤리"
+        },
+        {
+          "id": "general__g4__교직_실무_02",
+          "title": "안전·인권 교육"
+        }
+      ]
+    }
+  ]
+}

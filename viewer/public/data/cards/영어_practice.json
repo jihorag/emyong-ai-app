@@ -1,0 +1,127 @@
+{
+  "subject": "영어",
+  "card_type": "practice",
+  "license": "own-derivative",
+  "card_count": 3,
+  "cards": [
+    {
+      "id": "practice-영어-영어-Krashen-V01",
+      "type": "practice",
+      "subject": "영어",
+      "chapter": "듣기·말하기",
+      "scholar": "Krashen, S.",
+      "concept": "Input Hypothesis (i+1)",
+      "points": 4,
+      "cognitive_level": "적용",
+      "q_type": "이론 적용 + 수업 분석",
+      "stem": "(가)는 4학년 영어 수업의 일부이고, (나)는 동료 교사 대화이다. 물음에 답하시오. [4점]\n",
+      "passages": [
+        {
+          "tag": "(가) 수업",
+          "content": "T: (그림을 보여주며) Tom has a small dog. The dog is brown and white.\n   Tom takes the dog to the park every Sunday.\nS1: ... (이해 못 함)\nT: (그림 가리키며) Tom, dog, brown, park.\nS1: Oh! Tom has a brown dog!\n"
+        },
+        {
+          "tag": "(나) 동료 교사 대화",
+          "content": "박 교사: 학생들이 처음 텍스트를 이해 못 했는데, 그림과 핵심어 도움으로 이해\n         하게 됐어요.\n이 교사: 크라센의 ( ㉠ ) 가설에 따르면, 학습자 수준보다 약간 높은 입력을\n         ‘이해 가능한 입력(comprehensible input)’으로 만들어 주는 것이 학습\n         에 효과적이라고 합니다.\n"
+        }
+      ],
+      "sub_questions": [
+        {
+          "id": "1)",
+          "points": 2,
+          "prompt": "① ㉠에 들어갈 가설의 이름을 쓰시오 (한국어 또는 영어).\n② 교사가 ‘이해 가능한 입력’을 만들기 위해 사용한 전략 2가지를 (가)에서 찾아\n쓰시오.\n"
+        },
+        {
+          "id": "2)",
+          "points": 2,
+          "prompt": "① ‘i+1’에서 ‘i’와 ‘+1’의 의미를 각각 쓰시오.\n② Krashen의 ‘Affective Filter Hypothesis(정의적 여과 가설)’가 교실에서 의미\n하는 바를 쓰시오.\n"
+        }
+      ],
+      "answer_key": {
+        "1)-①": "Input Hypothesis (입력 가설, i+1 가설)",
+        "1)-②": "① 시각 자료(그림) 활용 — 텍스트의 의미를 직관적으로 보조\n② 핵심어 단순화 — 복잡한 문장을 ‘Tom, dog, brown, park’ 같은 핵심어로 환원\n",
+        "2)-①": "‘i’ — 학습자의 현재 언어 수준 (이미 이해할 수 있는 수준).\n‘+1’ — 현재 수준에서 약간 높은 단계 (도전적이지만 도움으로 이해 가능한 수준).\n",
+        "2)-②": "‘정의적 여과(불안·부정적 정서)’가 높으면 입력이 학습자 인지로 들어가지 못한다.\n교실에서는 학생의 불안을 낮추고(편안한 분위기·실수 허용·격려), 흥미를 높이는\n활동을 통해 ‘여과를 낮춤’으로써 입력의 효율을 높여야 한다.\n"
+      },
+      "license": "own-derivative",
+      "source_origin": "쿠키넷 + KICE 임용 양식 변형",
+      "origin_page": null
+    },
+    {
+      "id": "practice-영어-영어-TPR-V01",
+      "type": "practice",
+      "subject": "영어",
+      "chapter": "듣기·말하기 (수업 기법)",
+      "scholar": "Asher, J.",
+      "concept": "Total Physical Response",
+      "points": 3,
+      "cognitive_level": "적용",
+      "q_type": "기법 식별 + 적용",
+      "stem": "다음은 3학년 영어 수업의 일부이다. 물음에 답하시오. [3점]\n",
+      "passages": [
+        {
+          "tag": "수업",
+          "content": "T: Stand up, class. Listen carefully and do what I say.\n   \"Touch your nose.\"\nSs: (코를 만진다.)\nT: \"Touch your ears.\"\nSs: (귀를 만진다.)\nT: \"Jump three times.\"\nSs: (세 번 점프한다.)\n"
+        }
+      ],
+      "sub_questions": [
+        {
+          "id": "1)",
+          "points": 2,
+          "prompt": "① 이 수업에서 사용된 영어 교수법의 이름과 제안자를 쓰시오.\n② 이 교수법의 ‘교육적 근거’를 ‘침묵기(silent period)’ 개념과 연결하여 쓰시오.\n"
+        },
+        {
+          "id": "2)",
+          "points": 1,
+          "prompt": "이 교수법이 ‘초등 저학년 영어’에 특히 효과적인 이유를 1가지 쓰시오.\n"
+        }
+      ],
+      "answer_key": {
+        "1)-①": "TPR(Total Physical Response, 전신 반응 교수법) — Asher, J.",
+        "1)-②": "모국어 학습 초기 ‘침묵기(아이가 듣기만 하고 말하지 않는 시기)’를 모방. 학습자는\n신체 반응으로 ‘이해했음’을 보여주면 되므로, ‘말해야 한다’는 부담이 없어 정의적\n여과가 낮아진다. 충분한 입력을 받은 후 자연스럽게 발화가 나온다.\n",
+        "2)": "어린 학습자의 ‘신체적 활동성·놀이 욕구’와 잘 맞다. 듣기 → 행동의 단순 구조라\n이해 부담이 적고, 신체 활동 자체가 흥미·집중력을 유지시킨다.\n"
+      },
+      "license": "own-derivative",
+      "source_origin": "쿠키넷 + KICE 임용 양식 변형",
+      "origin_page": null
+    },
+    {
+      "id": "practice-영어-영어-Dictogloss-V01",
+      "type": "practice",
+      "subject": "영어",
+      "chapter": "수업 기법",
+      "scholar": "Wajnryb, R.",
+      "concept": "Dictogloss",
+      "points": 3,
+      "cognitive_level": "적용",
+      "q_type": "기법 적용",
+      "stem": "다음은 6학년 영어 수업의 일부이다. 물음에 답하시오. [3점]\n",
+      "passages": [
+        {
+          "tag": "수업",
+          "content": "T: Listen carefully and don't write. Just try to understand.\n   \"My best friend is Tom. He has brown eyes.\"\nT: This time, listen again and write only key words.\n(다시 천천히 읽음)\nSs: (핵심어 메모)\nT: Now, work in groups of 4. Use your notes to write the story in full sentences.\nSs: (모둠별로 텍스트 재구성)\n"
+        }
+      ],
+      "sub_questions": [
+        {
+          "id": "1)",
+          "points": 2,
+          "prompt": "① 이 수업 기법의 이름을 쓰고 제안자를 쓰시오 (영어 1단어 + 학자).\n② 이 기법이 ‘듣기·쓰기·말하기’의 어떤 통합을 이루는지 쓰시오.\n"
+        },
+        {
+          "id": "2)",
+          "points": 1,
+          "prompt": "이 기법에서 ‘모둠 재구성 단계’가 갖는 학습적 가치를 1가지 쓰시오.\n"
+        }
+      ],
+      "answer_key": {
+        "1)-①": "Dictogloss (Wajnryb, R., 1990)",
+        "1)-②": "듣기 (전체 의미 파악·핵심어 받아쓰기) → 쓰기 (자기 노트로 문장 만들기) → 말하기\n(모둠 협의에서 의견 교환·동료에게 자기 텍스트 설명). 네 기능 중 셋이 자연스럽게\n연결된다.\n",
+        "2)": "‘동료 협상(negotiation of meaning)’이 일어난다. 서로 다른 핵심어와 해석을 가진\n학생들이 ‘이 표현이 맞나? 다음에 뭐가 올까?’를 논의하면서, 자신의 언어 가설을\n검증하고 정정하는 ‘의식적 주목(noticing)’ 기회를 얻는다.\n"
+      },
+      "license": "own-derivative",
+      "source_origin": "쿠키넷 + KICE 임용 양식 변형",
+      "origin_page": null
+    }
+  ]
+}

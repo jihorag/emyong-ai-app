@@ -1,0 +1,14 @@
+# viewer/ 전용. 공통 규칙(node_modules·dist·.env·OS 파일)은 루트 .gitignore에 있다.
+# 여기엔 viewer에만 해당하는 것만 둔다.
+
+# Vercel CLI가 생성 (프로젝트 연결 정보 + OIDC 토큰)
+.vercel
+
+# vite-plugin-pwa 생성물 — 빌드마다 새로 만들어짐
+public/sw.js
+public/workbox-*.js
+public/registerSW.js
+dev-dist/
+
+# 검증 하네스가 남기는 스크린샷 (기준선 이미지는 test/baseline/에 별도 관리)
+test/output/

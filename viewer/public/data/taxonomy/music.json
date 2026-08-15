@@ -1,0 +1,128 @@
+{
+  "subject_id": "music",
+  "subject": "음악",
+  "areas": [
+    {
+      "name": "음악교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "music__edu__00",
+          "title": "오르프 교수법"
+        },
+        {
+          "id": "music__edu__01",
+          "title": "코다이 교수법"
+        },
+        {
+          "id": "music__edu__02",
+          "title": "달크로즈 유리드믹스"
+        },
+        {
+          "id": "music__edu__03",
+          "title": "고든 음악학습이론"
+        }
+      ]
+    },
+    {
+      "name": "음악과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "music__curr__00",
+          "title": "음악과 내용 체계"
+        },
+        {
+          "id": "music__curr__01",
+          "title": "성취기준 체계"
+        },
+        {
+          "id": "music__curr__02",
+          "title": "2022 개정 주요 변화"
+        }
+      ]
+    },
+    {
+      "name": "연주",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "music__g1__연주_00",
+          "title": "가창 지도"
+        },
+        {
+          "id": "music__g1__연주_01",
+          "title": "기악(리코더·타악) 지도"
+        },
+        {
+          "id": "music__g1__연주_02",
+          "title": "합주·앙상블"
+        }
+      ]
+    },
+    {
+      "name": "감상",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "music__g2__감상_00",
+          "title": "감상 지도의 방법"
+        },
+        {
+          "id": "music__g2__감상_01",
+          "title": "음악의 요소 듣기"
+        },
+        {
+          "id": "music__g2__감상_02",
+          "title": "시대·양식별 감상"
+        }
+      ]
+    },
+    {
+      "name": "창작",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "music__g3__창작_00",
+          "title": "리듬·가락 짓기"
+        },
+        {
+          "id": "music__g3__창작_01",
+          "title": "즉흥 표현"
+        },
+        {
+          "id": "music__g3__창작_02",
+          "title": "노랫말 만들기"
+        }
+      ]
+    },
+    {
+      "name": "음악 이론·국악",
+      "no": 4,
+      "group": "각론",
+      "units": [
+        {
+          "id": "music__g4__음악_이론_국악_00",
+          "title": "리듬과 박"
+        },
+        {
+          "id": "music__g4__음악_이론_국악_01",
+          "title": "가락과 음계"
+        },
+        {
+          "id": "music__g4__음악_이론_국악_02",
+          "title": "화성과 형식"
+        },
+        {
+          "id": "music__g4__음악_이론_국악_03",
+          "title": "국악의 장단과 시김새"
+        }
+      ]
+    }
+  ]
+}

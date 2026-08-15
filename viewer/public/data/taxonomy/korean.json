@@ -1,0 +1,199 @@
+{
+  "subject_id": "korean",
+  "subject": "국어",
+  "areas": [
+    {
+      "name": "국어교육론",
+      "no": "I",
+      "group": null,
+      "units": [
+        {
+          "id": "korean__edu__00",
+          "title": "화법 교육론"
+        },
+        {
+          "id": "korean__edu__01",
+          "title": "독서(읽기) 교육론"
+        },
+        {
+          "id": "korean__edu__02",
+          "title": "작문(쓰기) 교육론"
+        },
+        {
+          "id": "korean__edu__03",
+          "title": "문법 교육론"
+        },
+        {
+          "id": "korean__edu__04",
+          "title": "문학 교육론"
+        },
+        {
+          "id": "korean__edu__05",
+          "title": "매체 교육론"
+        },
+        {
+          "id": "korean__edu__06",
+          "title": "국어과 수업 모형"
+        }
+      ]
+    },
+    {
+      "name": "국어과 교육과정",
+      "no": "II",
+      "group": null,
+      "units": [
+        {
+          "id": "korean__curr__00",
+          "title": "국어과 성격 및 목표"
+        },
+        {
+          "id": "korean__curr__01",
+          "title": "내용 체계"
+        },
+        {
+          "id": "korean__curr__02",
+          "title": "성취기준 체계"
+        },
+        {
+          "id": "korean__curr__03",
+          "title": "2022 개정 주요 변화"
+        }
+      ]
+    },
+    {
+      "name": "듣기·말하기",
+      "no": 1,
+      "group": "각론",
+      "units": [
+        {
+          "id": "korean__g1__듣기_말하기_00",
+          "title": "화법의 원리와 과정"
+        },
+        {
+          "id": "korean__g1__듣기_말하기_01",
+          "title": "대화와 공감적 듣기"
+        },
+        {
+          "id": "korean__g1__듣기_말하기_02",
+          "title": "토의·토론 지도"
+        },
+        {
+          "id": "korean__g1__듣기_말하기_03",
+          "title": "발표·설명하기"
+        },
+        {
+          "id": "korean__g1__듣기_말하기_04",
+          "title": "듣기·말하기 부진 지도"
+        }
+      ]
+    },
+    {
+      "name": "읽기",
+      "no": 2,
+      "group": "각론",
+      "units": [
+        {
+          "id": "korean__g2__읽기_00",
+          "title": "읽기 과정 모형"
+        },
+        {
+          "id": "korean__g2__읽기_01",
+          "title": "독해 전략 지도"
+        },
+        {
+          "id": "korean__g2__읽기_02",
+          "title": "사실적·추론적·비판적 읽기"
+        },
+        {
+          "id": "korean__g2__읽기_03",
+          "title": "읽기 동기와 습관"
+        },
+        {
+          "id": "korean__g2__읽기_04",
+          "title": "읽기 부진 지도"
+        }
+      ]
+    },
+    {
+      "name": "쓰기",
+      "no": 3,
+      "group": "각론",
+      "units": [
+        {
+          "id": "korean__g3__쓰기_00",
+          "title": "쓰기 과정 모형"
+        },
+        {
+          "id": "korean__g3__쓰기_01",
+          "title": "작문의 원리"
+        },
+        {
+          "id": "korean__g3__쓰기_02",
+          "title": "장르별 글쓰기"
+        },
+        {
+          "id": "korean__g3__쓰기_03",
+          "title": "고쳐쓰기 지도"
+        },
+        {
+          "id": "korean__g3__쓰기_04",
+          "title": "쓰기 평가"
+        }
+      ]
+    },
+    {
+      "name": "문법",
+      "no": 4,
+      "group": "각론",
+      "units": [
+        {
+          "id": "korean__g4__문법_00",
+          "title": "음운과 발음"
+        },
+        {
+          "id": "korean__g4__문법_01",
+          "title": "단어와 형태"
+        },
+        {
+          "id": "korean__g4__문법_02",
+          "title": "문장과 문법 요소"
+        },
+        {
+          "id": "korean__g4__문법_03",
+          "title": "담화와 어휘"
+        },
+        {
+          "id": "korean__g4__문법_04",
+          "title": "국어 규범(맞춤법)"
+        }
+      ]
+    },
+    {
+      "name": "문학",
+      "no": 5,
+      "group": "각론",
+      "units": [
+        {
+          "id": "korean__g5__문학_00",
+          "title": "문학의 갈래와 성격"
+        },
+        {
+          "id": "korean__g5__문학_01",
+          "title": "시(운문) 교육"
+        },
+        {
+          "id": "korean__g5__문학_02",
+          "title": "이야기(서사) 교육"
+        },
+        {
+          "id": "korean__g5__문학_03",
+          "title": "반응 중심 문학 지도"
+        },
+        {
+          "id": "korean__g5__문학_04",
+          "title": "문학 감상과 평가"
+        }
+      ]
+    }
+  ]
+}
