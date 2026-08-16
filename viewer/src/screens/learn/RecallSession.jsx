@@ -9,7 +9,7 @@ import { sendMessagesUnified, getProviderForModel, coerceModel } from '../../ser
 import {
   DRILL_GEN_SYSTEM, DRILL_GEN_SYSTEM_GENERAL, buildDrillGenUser,
   DRILL_GRADE_SYSTEM, buildDrillGradeUser,
-} from '../../prompts/review';
+} from '../../prompts/drill';
 import { hasDrill, initDrill, pickNext, grade as gradeCard, snapshot } from '../../data/stores/drillStore';
 import { useStudyActivity } from '../../app/useStudyTimer';
 import HubHeader from '../../components/HubHeader';
@@ -311,8 +311,8 @@ export default function RecallSession({ unit, onBack, onSwitch, onHome, onNote }
       <div style={{ padding: '0 16px 10px' }}>
         <div style={{ display: 'flex', gap: 6, marginBottom: 10, flexWrap: 'wrap' }}>
           <span style={{ ...chip, ...chipOn }}>기억 확인</span>
-          <button onClick={() => onSwitch?.('ask')} style={chip}>개념 질문</button>
-          <button onClick={() => onSwitch?.('apply')} style={chip}>응용 인출</button>
+          <button onClick={() => onSwitch?.('note')} style={chip}>단권화 노트</button>
+          <button onClick={() => onSwitch?.('apply')} style={chip}>개념 활용</button>
         </div>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <input

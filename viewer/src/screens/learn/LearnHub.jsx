@@ -7,7 +7,6 @@ import { unitIdsWithDrill } from '../../data/recommend';
 import WrongNoteList from '../variant/WrongNoteList';
 import { DeckList, ConceptList } from './MyLearning';
 import HubHeader from '../../components/HubHeader';
-import ReviewChat from '../review/ReviewChat';
 import NoteView from '../review/NoteView';
 import UnitPractice from '../variant/VariantPractice';
 import EssayGrader from '../essay/EssayGrader';
@@ -69,28 +68,20 @@ export default function LearnHub({ initialUnit = null, onExitUnit, navigate, int
   if (essay) return <EssayGrader onBack={() => { setEssay(false); setMode('curriculum'); onConsumeIntent?.(); }} />;
 
   if (unit) {
-    if (view === 'note') return <NoteView unit={unit} onBack={() => setView('stages')} onChat={() => setView('chat')} />;
-    if (view === 'chat') return <ReviewChat unit={unit} onBack={() => setView('stages')} onNote={() => setView('note')} />;
+    if (view === 'note') return <NoteView unit={unit} onBack={() => setView('stages')} onChat={() => setView('recall')} />;
     if (view === 'practice') return <UnitPractice unit={unit} preGen={preset[unit.id]} onBack={() => setView('stages')} />;
     if (view === 'apply') return <ApplySession unit={unit} onBack={() => setView('stages')} />;
     if (view === 'recall') return (
       <RecallSession
         unit={unit}
         onBack={() => setView('stages')}
-        onSwitch={() => setView('chat')}
+        onSwitch={(k) => setView(k === 'apply' ? 'apply' : 'note')}
         onNote={() => setView('note')}
         onHome={() => navigate?.('home')}
       />
     );
-    const WAY_VIEW = {
-      read: 'note',
-      quiz: 'practice',
-      recall: 'recall',
-      apply: 'apply',
-      drill: 'chat',
-      ask: 'chat',
-    };
-    return <UnitStages unit={unit} onBack={leaveUnit} onOpen={(key) => setView(WAY_VIEW[key] || 'chat')} />;
+    const WAY_VIEW = { read: 'note', quiz: 'practice', recall: 'recall', apply: 'apply', drill: 'recall' };
+    return <UnitStages unit={unit} onBack={leaveUnit} onOpen={(key) => setView(WAY_VIEW[key] || 'stages')} />;
   }
 
   if (my === 'wrong') return <WrongNoteList onBack={() => setMy(null)} />;

@@ -27,9 +27,6 @@ export function classify(system, userText) {
   if (/교직논술.*채점관|채점 기준.*OCR/s.test(system)) return 'essay.grade';
   if (/서답형 출제자/.test(system)) return 'variant.generate';
   if (/논술형 채점위원/.test(system)) return 'apply.grade';
-  if (/스터디 짝꿍/.test(system)) {
-    return /\[단권화 노트\]/.test(system) ? 'review.chat.note' : 'review.chat.general';
-  }
   return 'unknown';
 }
 

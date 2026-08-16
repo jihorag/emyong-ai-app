@@ -99,15 +99,13 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   await seen('home', async () => !!(await page.getByText('바로가기').count()));
   await shot('01-home-before');
 
-  // ── 복습: 노트 → 채팅 → 스제트 ────────────────────────────
+  // 노트 → 기억 확인(스제트 카드 생성·채점)
   await goTab('#/learn');
   await seen('learn.subjects', async () => (await page.getByText('과목별 학습').count()) > 0);
   await page.getByRole('button', { name: /수학/ }).first().click();
   await page.waitForTimeout(1600);
-  // 첫 영역(I. 수학교육론)은 기본으로 펼쳐져 있다.
   await seen('learn.units', async () => (await page.getByRole('button', { name: /베르트하이머/ }).count()) > 0);
 
-  // 단원 행 → 학습 방식 화면 → 개념 읽기(노트)
   await page.getByRole('button', { name: /베르트하이머/ }).first().click();
   await page.waitForTimeout(1400);
   await seen('learn.unitStages', async () => (await page.getByText('나의 학습 상황').count()) > 0);
@@ -117,34 +115,26 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   await seen('learn.note', async () => (await page.getByText('단권화 노트').count()) > 0);
   await shot('02-note');
 
-  await page.getByRole('button', { name: /이묭이랑 이 단원 복습하기/ }).click();
-  await page.waitForTimeout(1500);
-  await seen('learn.chat', async () => (await page.locator('textarea').count()) > 0);
+  await page.getByRole('button', { name: /이 단원 기억 확인하기/ }).click();
+  await page.waitForTimeout(2600);
+  await seen('learn.recallIntro', async () => (await page.getByText(/전에 공부한 적 있나요/).count()) > 0);
+  await page.getByRole('button', { name: /여러 번 봤어요/ }).click();
+  await page.waitForTimeout(1400);
 
-  // 액션 1개 → review 프롬프트 포착
-  await page.getByRole('button', { name: /교육과정 인출/ }).first().click();
-  await page.waitForTimeout(1600);
-  await shot('03-chat');
-
-  // 스제트 → drill 생성·채점 프롬프트 포착
-  await page.getByRole('button', { name: /스제트/ }).first().click();
-  await page.waitForTimeout(2200);
-  const input = page.locator('textarea');
-  for (let i = 0; i < 8; i++) {
+  const recallInput = page.locator('input[placeholder="답을 입력하세요"]');
+  for (let i = 0; i < 6; i++) {
+    if (!(await recallInput.count()) || !(await recallInput.isEnabled().catch(() => false))) break;
     const q = await page.evaluate(() => {
-      const t = [...document.querySelectorAll('div')].map((d) => d.textContent.trim());
-      return t.reverse().find((x) => x.length < 120 && /\?$|순서대로$/.test(x)) || '';
+      const s = [...document.querySelectorAll('span')].map((x) => x.textContent.trim());
+      return s.reverse().find((x) => x.length > 8 && (x.includes('____') || x.endsWith('?') || x.includes('이것은'))) || '';
     });
     const hit = DRILL_CARDS.find(([cq]) => q.includes(cq.slice(0, 12)));
-    await input.fill(hit ? hit[1] : '통찰');
-    await input.press('Enter');
-    await page.waitForTimeout(430);
+    await recallInput.fill(hit ? hit[1] : '통찰');
+    await page.getByRole('button', { name: '전송' }).click();
+    await page.waitForTimeout(900);
   }
-  await seen('learn.drill', async () => (await page.getByText(/암기 \d+\/\d+/).count()) > 0);
-  await page.getByRole('button', { name: /대시보드/ }).first().click();
-  await page.waitForTimeout(1200);
-  await seen('learn.drillDashboard', async () => (await page.getByText('암기 대시보드').count()) > 0);
-  await shot('04-drill');
+  await seen('learn.recall', async () => (await page.getByText(/정착도 [●○]+/).count()) > 0);
+  await shot('03-recall');
 
   // ── 변형문제 (자체 탭 없음 — 전체 학습 › 단원 › 문제 풀기) ──
   await goTab('#/learn');
@@ -152,22 +142,6 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   await page.waitForTimeout(1500);
   await page.getByRole('button', { name: /베르트하이머/ }).first().click();
   await page.waitForTimeout(1400);
-
-  // 기억 확인 — 앞에서 스제트를 돌린 단원이라 카드가 이미 있다(생성 호출 없음).
-  await page.getByRole('button', { name: /기억 확인/ }).click();
-  await page.waitForTimeout(2200);
-  // 첫 진입이면 사전 지식을 객관식으로 먼저 묻는다.
-  await seen('learn.recallIntro', async () => (await page.getByText(/전에 공부한 적 있나요/).count()) > 0);
-  await page.getByRole('button', { name: /여러 번 봤어요/ }).click();
-  await page.waitForTimeout(1200);
-  const recallInput = page.locator('input[placeholder="답을 입력하세요"]');
-  await recallInput.fill('통찰');
-  await page.getByRole('button', { name: '전송' }).click();
-  await page.waitForTimeout(1400);
-  await seen('learn.recall', async () => (await page.getByText(/정착도 [●○]+/).count()) > 0);
-  await shot('05c-recall-session');
-  await page.getByRole('button', { name: '뒤로' }).first().click();
-  await page.waitForTimeout(900);
 
   await page.getByRole('button', { name: /문제 풀기/ }).click();
   await page.waitForTimeout(1600);

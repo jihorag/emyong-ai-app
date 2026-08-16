@@ -57,7 +57,7 @@ export default function NoteView({ unit, onBack, onChat }) {
         )}
       </div>
       <div style={{ padding: '10px 14px 16px', borderTop: `1px solid ${line.base}`, background: surface.white }}>
-        <button onClick={onChat} style={notePrimary}>💬 이묭이랑 이 단원 복습하기</button>
+        <button onClick={onChat} style={notePrimary}>🧠 이 단원 기억 확인하기</button>
       </div>
     </div>
   );

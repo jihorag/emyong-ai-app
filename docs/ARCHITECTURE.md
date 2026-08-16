@@ -18,7 +18,8 @@ viewer/
 │   │
 │   ├── screens/            🔵 프론트   탭 화면. 화면당 폴더 하나
 │   │   ├── home/           HomeDashboard          예측점수·레이더·취약단원
-│   │   ├── review/         ReviewHub(라우터) · ReviewChat · NoteView
+│   │   ├── learn/          LearnHub(라우터) · UnitStages · RecallSession · ApplySession
+│   │   ├── review/         NoteView
 │   │   ├── variant/        VariantPractice · WrongNoteList · levels
 │   │   ├── essay/          EssayGrader            사진 OCR 채점
 │   │   ├── planner/        StudyPlanner · ShareStudyCard
@@ -27,7 +28,7 @@ viewer/
 │   ├── components/         🔵 프론트   재사용 UI
 │   │   ├── HubHeader · SubjectGrid · UnitPicker
 │   │   ├── ParsedText                 ★ 모든 AI 출력이 여기를 통과 (계약 2)
-│   │   ├── ExamCard · DrillDashboard · StreakBadge
+│   │   ├── ExamCard · GradingCard · StreakBadge
 │   │   └── viz/                       도표 렌더 6파일
 │   │
 │   ├── styles/             🔵 프론트   색의 단일 출처
