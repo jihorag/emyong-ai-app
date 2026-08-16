@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { loadUnitStudy } from '../../data/dataModel';
+import { buildLocalCards } from '../../data/drillCards';
 import {
   getApiKey, getPrefs, getBaseUrls, getStreak,
   markActiveToday, updateChapterMastery, recordGrade,
@@ -25,17 +26,6 @@ const WAITING = [
 ];
 
 const norm = (s) => String(s || '').replace(/\s+/g, '').toLowerCase();
-
-function clozeToCards(unit) {
-  const out = [];
-  (unit.cloze || []).forEach((c) => {
-    const s = c.sentence || '';
-    const blanks = (c.blanks || []).filter((b) => b.term && s.includes(b.term));
-    if (blanks.length) blanks.forEach((b) => out.push({ q: s.split(b.term).join(' ____ '), a: b.term }));
-    else if (s.length > 6) out.push({ q: `다음을 완성하세요: “${s.slice(0, 12)}…”`, a: s });
-  });
-  return out;
-}
 
 function unitOverview(md, unitTitle, unit) {
   const clean = (s) => String(s || '')
@@ -64,30 +54,6 @@ function unitOverview(md, unitTitle, unit) {
   const terms = (unit.cloze || []).flatMap((c) => (c.blanks || []).map((b) => b.term))
     .filter(Boolean).filter((x, i, a) => a.indexOf(x) === i).slice(0, 6);
   return terms.length ? { summary: '', terms } : null;
-}
-
-function noteToCards(md, unitTitle) {
-  const lines = String(md || '').split('\n');
-  const s = lines.findIndex((l) => /^##\s/.test(l) && l.includes(unitTitle));
-  if (s < 0) return [];
-  let e = lines.length;
-  for (let i = s + 1; i < lines.length; i += 1) if (/^##\s/.test(lines[i])) { e = i; break; }
-  const clean = (x) => String(x || '')
-    .replace(/\*\*(.+?)\*\*/g, '$1').replace(/==(.+?)==/g, '$1').replace(/[`*_]/g, '').trim();
-
-  const out = [];
-  lines.slice(s + 1, e).forEach((raw) => {
-    const l = raw.trim();
-    const m = l.match(/^[-*]\s*\*\*(.+?)\*\*\s*[—\-:：]\s*(.+)$/)
-           || l.match(/^\*\*(.+?)\*\*\s*[:：]\s*(.+)$/);
-    if (!m) return;
-    const term = clean(m[1]).replace(/\s*\([^)]*\)\s*/g, '').trim();
-    const desc = clean(m[2]).split(/(?<=[.。])\s/)[0].slice(0, 90).trim();
-    if (term.length >= 2 && term.length <= 20 && desc.length >= 10) {
-      out.push({ q: `${desc} — 이것은?`, a: term });
-    }
-  });
-  return out;
 }
 
 function parseCardLines(txt) {
@@ -224,7 +190,7 @@ export default function RecallSession({ unit, onBack, onSwitch, onHome, onNote }
       if (ov) push({ who: 'ai', kind: 'overview', summary: ov.summary, terms: ov.terms });
 
       if (!hasDrill(unit.id)) {
-        const instant = [...noteToCards(md, unit.title), ...clozeToCards(unit)];
+        const instant = buildLocalCards(md, unit);
         if (instant.length) initDrill(unit.id, instant.slice(0, 40));
       }
       genRef.current = enrichWithAi(md);

@@ -8,6 +8,8 @@
   "learn.note": true,
   "learn.recallIntro": true,
   "learn.recall": true,
+  "learn.drill": true,
+  "learn.drillList": true,
   "variant.problem": true,
   "recall": true,
   "recall.wrongNote": true,

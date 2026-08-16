@@ -12,6 +12,7 @@ import UnitPractice from '../variant/VariantPractice';
 import EssayGrader from '../essay/EssayGrader';
 import UnitStages from './UnitStages';
 import RecallSession from './RecallSession';
+import DrillSession from './DrillSession';
 import ApplySession from './ApplySession';
 import { brand, ink, line, surface, shadow } from '../../styles/tokens';
 
@@ -71,6 +72,9 @@ export default function LearnHub({ initialUnit = null, onExitUnit, navigate, int
     if (view === 'note') return <NoteView unit={unit} onBack={() => setView('stages')} onChat={() => setView('recall')} />;
     if (view === 'practice') return <UnitPractice unit={unit} preGen={preset[unit.id]} onBack={() => setView('stages')} />;
     if (view === 'apply') return <ApplySession unit={unit} onBack={() => setView('stages')} />;
+    if (view === 'drill') return (
+      <DrillSession unit={unit} onBack={() => setView('stages')} onRecall={() => setView('recall')} />
+    );
     if (view === 'recall') return (
       <RecallSession
         unit={unit}
@@ -80,7 +84,7 @@ export default function LearnHub({ initialUnit = null, onExitUnit, navigate, int
         onHome={() => navigate?.('home')}
       />
     );
-    const WAY_VIEW = { read: 'note', quiz: 'practice', recall: 'recall', apply: 'apply', drill: 'recall' };
+    const WAY_VIEW = { read: 'note', quiz: 'practice', recall: 'recall', apply: 'apply', drill: 'drill' };
     return <UnitStages unit={unit} onBack={leaveUnit} onOpen={(key) => setView(WAY_VIEW[key] || 'stages')} />;
   }
 

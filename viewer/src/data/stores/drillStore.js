@@ -55,6 +55,12 @@ export function pickNext(unitId, exceptId = null) {
   return null;
 }
 
+export function allCards(unitId) {
+  const s = load(unitId);
+  if (!s || !s.order.length) return [];
+  return s.order.map((id) => s.cards[id]).filter(Boolean);
+}
+
 export function grade(unitId, cardId, correct) {
   const s = load(unitId);
   if (!s || !s.cards[cardId]) return null;

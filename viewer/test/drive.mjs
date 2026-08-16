@@ -136,6 +136,24 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   await seen('learn.recall', async () => (await page.getByText(/정착도 [●○]+/).count()) > 0);
   await shot('03-recall');
 
+  // 스제트 연습 — AI를 안 쓴다(카드는 노트에서 이미 만들어져 있다)
+  await page.getByRole('button', { name: '뒤로' }).first().click();
+  await page.waitForTimeout(900);
+  await page.getByRole('button', { name: /스제트 연습/ }).click();
+  await page.waitForTimeout(1400);
+  await seen('learn.drill', async () => (await page.getByText('탭하면 답이 보여요').count()) > 0);
+  await shot('03a-drill');
+  await page.locator('button').filter({ hasText: '탭하면 답이 보여요' }).first().click();
+  await page.waitForTimeout(500);
+  await page.getByRole('button', { name: '외웠어요' }).click();
+  await page.waitForTimeout(700);
+  await page.getByRole('button', { name: '카드 목록 보기' }).click();
+  await page.waitForTimeout(800);
+  await seen('learn.drillList', async () => (await page.getByRole('button', { name: '아직 못 외운 것' }).count()) > 0);
+  await shot('03b-drill-list');
+  await page.getByRole('button', { name: '아직 못 외운 것' }).click();
+  await page.waitForTimeout(500);
+
   // ── 변형문제 (자체 탭 없음 — 전체 학습 › 단원 › 문제 풀기) ──
   await goTab('#/learn');
   await page.getByRole('button', { name: /수학/ }).first().click();
