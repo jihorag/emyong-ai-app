@@ -7,6 +7,7 @@ import { unitIdsWithDrill } from '../../data/recommend';
 import WrongNoteList from '../variant/WrongNoteList';
 import { DeckList, ConceptList } from './MyLearning';
 import HubHeader from '../../components/HubHeader';
+import SubjectIcon from '../../components/SubjectIcon';
 import NoteView from '../review/NoteView';
 import UnitPractice from '../variant/VariantPractice';
 import EssayGrader from '../essay/EssayGrader';
@@ -147,7 +148,9 @@ function SubjectRow({ subject, stat, first, onClick }) {
   return (
     <button onClick={s.empty ? undefined : onClick} disabled={s.empty}
       style={{ ...listRow, borderTop: first ? 'none' : `1px solid ${line.soft}`, cursor: s.empty ? 'default' : 'pointer' }}>
-      <span style={{ ...rowIcon, ...(s.empty ? monoOff : null) }}>{subject.short.slice(0, 1)}</span>
+      <span style={{ ...rowIcon, ...(s.empty ? monoOff : null) }}>
+        <SubjectIcon id={subject.id} color={s.empty ? ink.faint : brand.primary} />
+      </span>
       <span style={{ flex: 1, textAlign: 'left', fontWeight: 700, fontSize: '0.92rem',
         color: s.empty ? ink.faint : ink.strongest }}>{subject.title}</span>
       <span style={{ fontSize: '0.78rem', fontWeight: strong ? 800 : 600,
