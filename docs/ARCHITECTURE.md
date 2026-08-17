@@ -31,6 +31,11 @@ viewer/
 │   │   ├── ExamCard · GradingCard · StreakBadge
 │   │   └── viz/                       도표 렌더 6파일
 │   │
+│   ├── demo/               ⚪ 공용     데모 모드
+│   │   ├── index.js                   켜기·끄기 + 실제 기록 백업/복원
+│   │   ├── seed.js                    시연용 학습 기록 생성
+│   │   └── mockAi.js                  fetch 가로채 기기 안에서 응답 생성
+│   │
 │   ├── styles/             🔵 프론트   색의 단일 출처
 │   │   ├── tokens.js                  인라인 스타일용 토큰
 │   │   └── global.css · index.css

@@ -10,6 +10,8 @@ import Settings from '../screens/settings/Settings.jsx'
 import StreakBadge from '../components/StreakBadge.jsx'
 import Onboarding from './Onboarding.jsx'
 import { useStudyTimer, useCurrentActivity } from './useStudyTimer'
+import DemoBadge from '../demo/DemoBadge.jsx'
+import { isDemoOn } from '../demo'
 import { SUBJECTS } from '../data/subjects'
 import { loadSubjectModel } from '../data/dataModel'
 
@@ -119,6 +121,7 @@ export default function App() {
 
   return (
     <div className="app-shell with-nav">
+      {isDemoOn() && <DemoBadge />}
       {showOnboarding ? (
         <div className="app-container">
           <Onboarding onComplete={completeOnboarding} />

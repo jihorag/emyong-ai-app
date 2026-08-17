@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { getPrefs, setPrefs, getApiKey, setApiKey, getBaseUrls, setBaseUrl, resetLearningProgress } from '../../data/stores/learningStore';
 import { availableModels, coerceModel, getProviderForModel } from '../../services/aiProviders';
 import { brand, ink, line, surface, semantic } from '../../styles/tokens';
+import { isDemoOn, enterDemo, exitDemo } from '../../demo';
 
 const PROVIDERS = [
   { id: 'anthropic', name: 'Claude (Anthropic)', ph: 'sk-ant-...', direct: true, proxy: false },
@@ -31,6 +32,24 @@ export default function Settings({ profile, onResetProfile, onBack }) {
     toast(v ? '키 저장됨' : '키 삭제됨');
   };
   const saveUrl = (prov, v) => { setBaseUrl(prov, v.trim() || undefined); setUrls((u) => ({ ...u, [prov]: v.trim() })); };
+
+  const [demo, setDemo] = useState(() => isDemoOn());
+  const [demoBusy, setDemoBusy] = useState(false);
+
+  const toggleDemo = async () => {
+    if (demoBusy) return;
+    if (demo) {
+      setDemoBusy(true);
+      exitDemo();
+      window.location.reload();
+      return;
+    }
+    if (!confirm('데모 모드를 켜면 지금 학습 기록을 잠시 치워 두고 시연용 기록으로 바꿉니다.\n끄면 원래 기록이 그대로 돌아옵니다. 켤까요?')) return;
+    setDemoBusy(true);
+    setDemo(true);
+    await enterDemo();
+    window.location.reload();
+  };
 
   const doReset = () => {
     if (!confirm('학습 진척(마스터·정답률·대화)을 모두 초기화할까요? API 키·설정은 유지됩니다.')) return;
@@ -116,6 +135,28 @@ export default function Settings({ profile, onResetProfile, onBack }) {
           <button onClick={onResetProfile} style={secBtn}>프로필 다시 설정</button>
         </Card>
 
+        <Card title="🎬 데모 모드" desc="시연용입니다. 학습 기록을 미리 채워 두고, AI 응답을 서버 없이 이 기기 안에서 만듭니다.">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: '0.88rem', fontWeight: 700, color: ink.body }}>
+                {demo ? '켜짐 — 시연용 데이터' : '꺼짐'}
+              </div>
+              <div style={{ fontSize: '0.74rem', color: ink.faint, marginTop: 3, lineHeight: 1.5 }}>
+                {demo
+                  ? '끄면 원래 학습 기록이 그대로 돌아옵니다.'
+                  : '켜는 동안 실제 기록은 따로 보관됩니다.'}
+              </div>
+            </div>
+            <button onClick={toggleDemo} disabled={demoBusy} role="switch" aria-checked={demo}
+              aria-label="데모 모드" style={{ ...track, ...(demo ? trackOn : null) }}>
+              <span style={{ ...knob, ...(demo ? knobOn : null) }} />
+            </button>
+          </div>
+          <div style={{ fontSize: '0.74rem', color: ink.faint, marginTop: 10, lineHeight: 1.5 }}>
+            주소 뒤에 <b>?demo=1</b> 을 붙이면 바로 켜진 채로 열립니다. 시연 링크로 쓰세요.
+          </div>
+        </Card>
+
         <Card title="🗑 데이터">
           <button onClick={doReset} style={{ ...secBtn, color: semantic.danger, borderColor: semantic.dangerLine }}>학습 진척 초기화</button>
           <div style={{ fontSize: '0.74rem', color: ink.faint, marginTop: 8 }}>API 키·프로필은 유지되고, 마스터·정답률·대화만 지워집니다.</div>
@@ -141,6 +182,18 @@ const inputStyle = { flex: 1, minWidth: 0, padding: '9px 11px', border: `1px sol
 const miniBtn = { padding: '7px 13px', borderRadius: 8, border: `1px solid ${line.base}`, background: surface.white, color: ink.body, fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', flexShrink: 0 };
 const miniBtnPrimary = { padding: '7px 14px', borderRadius: 8, border: 'none', background: brand.primary, color: surface.white, fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', flexShrink: 0 };
 const secBtn = { marginTop: 12, width: '100%', padding: 12, borderRadius: 10, border: `1px solid ${line.base}`, background: surface.white, color: ink.muted, fontWeight: 700, fontSize: '0.86rem', cursor: 'pointer' };
+const track = {
+  width: 50, height: 30, borderRadius: 999, flexShrink: 0, cursor: 'pointer', padding: 3,
+  border: `1px solid ${line.base}`, background: surface.sunken,
+  display: 'flex', justifyContent: 'flex-start', alignItems: 'center',
+};
+const trackOn = { background: brand.primary, borderColor: brand.primary, justifyContent: 'flex-end' };
+const knob = {
+  width: 22, height: 22, borderRadius: '50%', background: surface.white,
+  boxShadow: '0 1px 3px rgba(43, 51, 70, 0.25)', display: 'block',
+};
+const knobOn = { background: surface.white };
+
 const noticeBox = {
   background: brand.tintSoft, border: `1px solid ${line.base}`, borderRadius: 12,
   padding: '12px 14px', marginBottom: 14, fontSize: '0.82rem',

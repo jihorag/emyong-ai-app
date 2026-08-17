@@ -31,6 +31,7 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
     if (!IGNORABLE.some((re) => re.test(t))) consoleErrors.push(t.slice(0, 200));
   });
   page.on('pageerror', (e) => consoleErrors.push('pageerror: ' + String(e).slice(0, 200)));
+  page.on('dialog', (d) => d.accept());
 
   const { calls } = await installAiMock(page);
   const screens = {};
@@ -262,6 +263,40 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   await goTab('#/home');
   const homeAfter = await readHome();
   await shot('09-home-after');
+
+  // ── 데모 모드 켜고 끄기 ────────────────────────────────────
+  // ⚠ 끈 뒤 실제 학습 기록이 한 바이트도 다르면 안 된다. 사용자 데이터가 걸려 있다.
+  const appData = () => page.evaluate(() => {
+    const o = {};
+    for (let i = 0; i < localStorage.length; i += 1) {
+      const k = localStorage.key(i);
+      if (k === 'profile' || k === 'quiz-studytime-v1' || k.startsWith('ailearn-')) o[k] = localStorage.getItem(k);
+    }
+    return o;
+  });
+  const realData = await appData();
+
+  await goTab('#/home');
+  await page.getByRole('button', { name: '설정' }).first().click();
+  await page.waitForTimeout(900);
+  await page.getByRole('switch', { name: '데모 모드' }).click();
+  await page.waitForTimeout(6000);
+  await seen('demo.on', async () => {
+    const seeded = await page.evaluate(() => {
+      try { return JSON.parse(localStorage.getItem('profile') || '{}').name; } catch { return null; }
+    });
+    const badge = await page.getByRole('button', { name: '데모 모드' }).count();
+    return badge > 0 && seeded === '김임용';
+  });
+  await shot('10-demo-on');
+
+  await page.getByRole('button', { name: '데모 모드' }).last().click();
+  await page.waitForTimeout(500);
+  await page.getByRole('button', { name: /데모 끄고 원래 기록으로/ }).click();
+  await page.waitForTimeout(3500);
+  const restored = await appData();
+  await seen('demo.restored', async () => JSON.stringify(restored) === JSON.stringify(realData));
+  await seen('demo.off', async () => (await page.getByRole('button', { name: '데모 모드' }).count()) === 0);
 
   const storageKeys = await page.evaluate(() =>
     Object.keys(localStorage)

@@ -19,5 +19,8 @@
   "learn.askAnswer": true,
   "essay": true,
   "stats": true,
-  "settings": true
+  "settings": true,
+  "demo.on": true,
+  "demo.restored": true,
+  "demo.off": true
 }
