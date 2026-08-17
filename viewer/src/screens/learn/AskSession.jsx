@@ -77,11 +77,9 @@ export default function AskSession({ unit, onBack }) {
   const { grounding, source, chips } = useMemo(() => {
     if (md === null) return { grounding: '', source: '', chips: [] };
     const { text, matched } = unitSection(md, unit.title);
-    const raw = (md.match(/^>\s*출처:\s*(.+)$/m) || [])[1] || '';
-    const book = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
     return {
       grounding: text.slice(0, GROUND_LIMIT),
-      source: text ? [book, matched ? `${unit.title} 단원` : '단원 전체'].filter(Boolean).join(' · ') : '',
+      source: text ? `단권화 노트 · ${matched ? `${unit.title} 단원` : '단원 전체'}` : '',
       chips: suggestions(matched ? noteTerms(text) : []),
     };
   }, [md, unit.title]);
@@ -144,7 +142,7 @@ export default function AskSession({ unit, onBack }) {
             <img src="/imyong.png" alt="" style={avatar} />
             <div style={aiCard}>
               <div style={{ fontSize: '0.9rem', color: ink.body, lineHeight: 1.68 }}>{bold(m.text)}</div>
-              <div style={groundLine}>근거: {source || '교재 노트 없음 · 표준 이론'}</div>
+              <div style={groundLine}>근거: {source || '노트 없음 · 표준 이론'}</div>
             </div>
           </div>
         )))}

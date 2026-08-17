@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { loadUnitStudy } from '../../data/dataModel';
 import { buildLocalCards } from '../../data/drillCards';
 import {
@@ -79,7 +79,6 @@ export default function RecallSession({ unit, onBack, onSwitch, onHome, onNote }
   const [busy, setBusy] = useState(true);
   const [error, setError] = useState('');
   const [result, setResult] = useState(null);
-  const [studyMd, setStudyMd] = useState('');
   const [awaitingIntro, setAwaitingIntro] = useState(false);
   const scrollRef = useRef(null);
   const lock = useRef(false);
@@ -107,11 +106,6 @@ export default function RecallSession({ unit, onBack, onSwitch, onHome, onNote }
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [msgs, busy]);
-
-  const noteSource = useMemo(() => {
-    const m = (studyMd || '').match(/^>\s*출처:\s*(.+)$/m);
-    return m ? m[1].replace(/\s*\([^)]*\)\s*$/, '').trim() : '';
-  }, [studyMd]);
 
   const finish = () => {
     const after = snapshot(unit.id);
@@ -183,7 +177,6 @@ export default function RecallSession({ unit, onBack, onSwitch, onHome, onNote }
     (async () => {
       const md = await loadUnitStudy(unit.subject, unit);
       if (!active) return;
-      setStudyMd(md || '');
 
       push({ who: 'ai', text: `안녕하세요! 오늘은 **${unit.title}** 함께 볼게요.` });
       const ov = unitOverview(md, unit.title, unit);
@@ -259,7 +252,7 @@ export default function RecallSession({ unit, onBack, onSwitch, onHome, onNote }
       <HubHeader title={unit.title} onBack={onBack} />
       <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', padding: '16px 16px 8px' }}>
         {msgs.map((m, i) => (
-          <Bubble key={i} msg={m} source={noteSource}
+          <Bubble key={i} msg={m}
             onChoose={chooseIntro} onNote={onNote} onStart={startAsking} />
         ))}
         {busy && (
@@ -327,7 +320,7 @@ function Dots() {
   );
 }
 
-function Bubble({ msg, source, onChoose, onNote, onStart }) {
+function Bubble({ msg, onChoose, onNote, onStart }) {
   if (msg.who === 'me') {
     return (
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
@@ -349,11 +342,9 @@ function Bubble({ msg, source, onChoose, onNote, onStart }) {
               {msg.terms.map((k) => <span key={k} style={termChip}>{k}</span>)}
             </div>
           )}
-          {source && (
-            <div style={{ fontSize: '0.7rem', color: ink.faint, marginTop: 10, paddingTop: 8, borderTop: `1px solid ${line.soft}` }}>
-              근거: {source}
-            </div>
-          )}
+          <div style={{ fontSize: '0.7rem', color: ink.faint, marginTop: 10, paddingTop: 8, borderTop: `1px solid ${line.soft}` }}>
+            근거: 단권화 노트
+          </div>
         </div>
       ) : msg.kind === 'intro' ? (
         <div style={aiCard}>
@@ -390,11 +381,9 @@ function Bubble({ msg, source, onChoose, onNote, onStart }) {
             </span>
             <span style={{ fontSize: '0.88rem', color: ink.body, lineHeight: 1.55 }}>{msg.text}</span>
           </div>
-          {source && (
-            <div style={{ fontSize: '0.7rem', color: ink.faint, marginTop: 10, paddingTop: 8, borderTop: `1px solid ${line.soft}` }}>
-              근거: {source}
-            </div>
-          )}
+          <div style={{ fontSize: '0.7rem', color: ink.faint, marginTop: 10, paddingTop: 8, borderTop: `1px solid ${line.soft}` }}>
+            근거: 단권화 노트
+          </div>
         </div>
       ) : (
         <span style={aiBubble}>{bold(msg.text)}</span>

@@ -29,7 +29,6 @@ export default function UnitPractice({ unit, preGen, onBack }) {
 
   const grounding = ((studyMd || '').slice(0, 16000)
     + '\n' + (unit.cloze || []).slice(0, 30).map((c) => c.sentence).join('\n')).slice(0, 18000);
-  const noteSource = (((studyMd || '').match(/^>\s*출처:\s*(.+)$/m) || [])[1] || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
 
   const genProblem = async () => {
     setError(''); setBusy(true); setProblem(null); setRevealed(false); setAnswer(''); setSaved(false);
@@ -70,7 +69,7 @@ export default function UnitPractice({ unit, preGen, onBack }) {
       </div>
       <main className="main-content">
         <div style={{ fontSize: '0.8rem', color: ink.muted, marginBottom: 12 }}>{LEVELS.find((l) => l.key === level).hint}</div>
-        {noteSource && <div style={vpSource}>📖 <b>단권화 노트</b> 기반 · 출처: {noteSource}</div>}
+        {studyMd && <div style={vpSource}>📖 <b>단권화 노트</b> 기반</div>}
 
         {problem ? (() => {
           const { q, a } = split(problem.text);
