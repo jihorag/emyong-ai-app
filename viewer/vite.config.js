@@ -3,7 +3,11 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import { brand, surface } from './src/styles/tokens.js'
 
+// ⚠ 빌드마다 달라져야 한다. 기기에 남은 옛 번들을 강제로 갈아치우는 유일한 신호다.
+const BUILD_ID = new Date().toISOString().replace(/\D/g, '').slice(0, 14)
+
 export default defineConfig({
+  define: { __BUILD_ID__: JSON.stringify(BUILD_ID) },
   server: {
     fs: {
       // '..' = viewer의 부모 → viewer 루트 + 원본 자료 폴더까지 접근 허용 (개발 서버 전용)
@@ -12,11 +16,19 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    {
+      name: 'emit-version',
+      generateBundle() {
+        this.emitFile({ type: 'asset', fileName: 'version.json', source: JSON.stringify({ buildId: BUILD_ID }) })
+      },
+    },
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: false,
       workbox: {
         skipWaiting: true,
         clientsClaim: true,
+        cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com/,
