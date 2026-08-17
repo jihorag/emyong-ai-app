@@ -27,6 +27,10 @@ export function classify(system, userText) {
   if (/교직논술.*채점관|채점 기준.*OCR/s.test(system)) return 'essay.grade';
   if (/서답형 출제자/.test(system)) return 'variant.generate';
   if (/논술형 채점위원/.test(system)) return 'apply.grade';
+  if (/공부를 돕는 조교/.test(system)) {
+    // ⚠ ASK_SYSTEM_GENERAL 본문에도 "단권화 노트가 없다"가 들어 있다. 대괄호로 구분한다.
+    return /\[단권화 노트\]/.test(system) ? 'ask.note' : 'ask.general';
+  }
   return 'unknown';
 }
 
@@ -86,6 +90,10 @@ export async function installAiMock(page) {
         text = JSON.stringify({ marks, needsReview: false });
         break;
       }
+      case 'ask.note':
+      case 'ask.general':
+        text = '영상적 표현은 그림·이미지로 개념을 나타내는 방식이에요. 예를 들어 분수 3/4을 피자 그림으로 나타내는 것이 영상적 표현입니다.';
+        break;
       case 'essay.grade':
         text = '## 📋 채점 기준 (읽어낸 것)\n검증용 응답입니다.\n\n## ✅ 채점 결과\n**총점: 18 / 20점**';
         break;

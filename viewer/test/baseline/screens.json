@@ -14,6 +14,8 @@
   "recall": true,
   "recall.wrongNote": true,
   "learn.apply": true,
+  "learn.ask": true,
+  "learn.askAnswer": true,
   "essay": true,
   "stats": true,
   "settings": true

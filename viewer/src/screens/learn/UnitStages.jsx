@@ -10,6 +10,7 @@ const WAYS = [
   { key: 'apply',   label: '개념 활용',     desc: '배운 개념을 새 상황에 적용', icon: 'bulb' },
   { key: 'drill',   label: '스제트 연습',   desc: '한 줄 카드로 간격 반복 암기', icon: 'cards' },
   { key: 'quiz',    label: '문제 풀기',     desc: '오늘 개념으로 문제',         icon: 'pen' },
+  { key: 'ask',     label: '궁금한 것 묻기', desc: '노트에 근거해 바로 답변',    icon: 'question' },
 ];
 
 const ICON = {
@@ -18,6 +19,7 @@ const ICON = {
   bulb: 'M9.5 18.5h5M10.5 21h3M12 3a6 6 0 0 0-3.4 10.9c.3.2.4.6.4 1v.6h6v-.6c0-.4.1-.8.4-1A6 6 0 0 0 12 3z',
   cards: 'M6.5 3.5h8L18.5 7v12a1.5 1.5 0 0 1-1.5 1.5H6.5A1.5 1.5 0 0 1 5 19V5a1.5 1.5 0 0 1 1.5-1.5zM14.5 3.5V7h4M8.5 12h7M8.5 16h4.5',
   pen: 'M4 20l4.6-1.1 10-10a2.2 2.2 0 0 0-3.1-3.1l-10 10zM14.5 6.9l3.1 3.1',
+  question: 'M9.2 9a2.9 2.9 0 1 1 3.8 2.8c-.7.3-1 .9-1 1.6v.6M12 17.4v.01M12 3.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17z',
 };
 
 function WayIcon({ name, filled }) {

@@ -18,7 +18,7 @@ viewer/
 │   │
 │   ├── screens/            🔵 프론트   탭 화면. 화면당 폴더 하나
 │   │   ├── home/           HomeDashboard          예측점수·레이더·취약단원
-│   │   ├── learn/          LearnHub(라우터) · UnitStages · RecallSession · ApplySession
+│   │   ├── learn/          LearnHub(라우터) · UnitStages · Recall/Drill/ApplySession · AskSession
 │   │   ├── review/         NoteView
 │   │   ├── variant/        VariantPractice · WrongNoteList · levels
 │   │   ├── essay/          EssayGrader            사진 OCR 채점

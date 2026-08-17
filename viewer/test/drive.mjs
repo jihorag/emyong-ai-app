@@ -199,6 +199,18 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   await seen('learn.apply', async () => (await page.getByText(/\d+ \/ \d+ 점/).count()) > 0);
   await shot('05d-apply');
 
+  // 궁금한 것 묻기 — 노트 섹션에 근거해 답한다(추천 질문도 노트에서 뽑는다)
+  await page.getByRole('button', { name: '뒤로' }).first().click();
+  await page.waitForTimeout(900);
+  await page.getByRole('button', { name: /궁금한 것 묻기/ }).click();
+  await page.waitForTimeout(1500);
+  await seen('learn.ask', async () => (await page.getByText(/궁금한 걸 물어보세요/).count()) > 0);
+  await shot('05e-ask');
+  await page.locator('button').filter({ hasText: '초등 수업 예시 알려줘' }).click();
+  await page.waitForTimeout(1800);
+  await seen('learn.askAnswer', async () => (await page.getByText(/근거: .*부르너 단원/).count()) > 0);
+  await shot('05f-ask-answer');
+
   // ── 논술채점 (전체 학습 상단 진입 · 1×1 PNG로 비전 경로 통과) ──
   await goTab('#/learn');
   await page.getByRole('button', { name: '논술', exact: true }).click();
