@@ -68,8 +68,7 @@ export default function RecallHub({ leavesBySubject, onPickUnit }) {
               desc="간격이 지나 재등장할 때가 된 스제트"
             >
               {data.due.map((x) => (
-                <UnitRow key={x.unit.id} unit={x.unit} badge={`${x.count}장`} showSubject
-                  onClick={() => onPickUnit?.(x.unit)} />
+                <UnitRow key={x.unit.id} unit={x.unit} badge={`${x.count}장`} onClick={() => onPickUnit?.(x.unit)} />
               ))}
             </Group>
 
@@ -114,14 +113,14 @@ function Group({ icon, title, tone, count, unitLabel, desc, children }) {
   );
 }
 
-function UnitRow({ unit, badge, showSubject, onClick }) {
-  const rest = unit.path.slice(showSubject ? 1 : 0, 2).join(' · ');
+function UnitRow({ unit, badge, onClick }) {
+  const rest = unit.path.slice(1, 2).join(' · ');
   return (
     <button onClick={onClick} style={rowCard}>
       <span style={{ flex: 1, textAlign: 'left', minWidth: 0 }}>
         <span style={{ display: 'block', fontWeight: 700, fontSize: '0.92rem', color: ink.strongest }}>{unit.title}</span>
         <span style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 5 }}>
-          {showSubject && <span style={subjectChip}>{unit.path[0]}</span>}
+          <span style={subjectChip}>{unit.path[0]}</span>
           {rest && <span style={{ fontSize: '0.74rem', color: ink.faint, minWidth: 0,
             overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{rest}</span>}
         </span>
