@@ -8,6 +8,8 @@ import WrongNoteList from '../variant/WrongNoteList';
 import { DeckList, ConceptList } from './MyLearning';
 import HubHeader from '../../components/HubHeader';
 import SubjectIcon from '../../components/SubjectIcon';
+import DemoGuide from '../../demo/DemoGuide';
+import { isDemoOn } from '../../demo';
 import NoteView from '../review/NoteView';
 import UnitPractice from '../variant/VariantPractice';
 import EssayGrader from '../essay/EssayGrader';
@@ -102,6 +104,13 @@ export default function LearnHub({ initialUnit = null, onExitUnit, navigate, int
     <div className="app-container">
       <HubHeader title="전체 학습" sub="과목을 고르거나, 내가 쌓아둔 걸 다시 보세요" />
       <main className="main-content">
+        {isDemoOn() && (
+          <DemoGuide
+            text="현재는 수학 과목만 학습이 가능해요. 수학 과목을 눌러볼까요?"
+            action="수학 열기"
+            onAction={() => setSubject('math')}
+          />
+        )}
         <section style={panel}>
           <div style={panelTitle}>학습 모드</div>
           <div style={{ display: 'flex', gap: 8, marginBottom: 18 }}>

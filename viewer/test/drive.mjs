@@ -299,6 +299,10 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   });
   await shot('10b-demo-stats');
 
+  await goTab('#/learn');
+  await seen('demo.guide', async () => (await page.getByText(/현재는 수학 과목만 학습이 가능해요/).count()) > 0);
+  await shot('10c-demo-guide');
+
   await page.getByRole('button', { name: '데모 모드' }).last().click();
   await page.waitForTimeout(500);
   await page.getByRole('button', { name: /데모 끄고 원래 기록으로/ }).click();
