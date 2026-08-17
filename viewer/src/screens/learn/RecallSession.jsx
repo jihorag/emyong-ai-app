@@ -150,7 +150,7 @@ export default function RecallSession({ unit, onBack, onSwitch, onHome, onNote }
   };
 
   const startAsking = async () => {
-    if (hasDrill(unit.id)) { ask(null); return; }
+    if (hasDrill(unit.id)) { setBusy(false); ask(null); return; }
     setBusy(true);
     const ok = await (genRef.current || Promise.resolve(false));
     setBusy(false);

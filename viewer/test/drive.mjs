@@ -136,6 +136,16 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   await seen('learn.recall', async () => (await page.getByText(/정착도 [●○]+/).count()) > 0);
   await shot('03-recall');
 
+  // 재진입 — 덱과 사전지식이 이미 있는 단원. 입력창이 잠기면 안 된다.
+  await page.getByRole('button', { name: '뒤로' }).first().click();
+  await page.waitForTimeout(900);
+  await page.getByRole('button', { name: /기억 확인/ }).click();
+  await page.waitForTimeout(2600);
+  await seen('learn.recallReturn', async () => {
+    const box = page.locator('input[placeholder="답을 입력하세요"]');
+    return (await box.count()) > 0 && (await box.isEnabled());
+  });
+
   // 스제트 연습 — AI를 안 쓴다(카드는 노트에서 이미 만들어져 있다)
   await page.getByRole('button', { name: '뒤로' }).first().click();
   await page.waitForTimeout(900);
