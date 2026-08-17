@@ -7,7 +7,6 @@ import TodayHub from '../screens/today/TodayHub.jsx'
 import RecallHub from '../screens/recall/RecallHub.jsx'
 import StudyPlanner from '../screens/planner/StudyPlanner.jsx'
 import Settings from '../screens/settings/Settings.jsx'
-import StreakBadge from '../components/StreakBadge.jsx'
 import Onboarding from './Onboarding.jsx'
 import { useStudyTimer, useCurrentActivity } from './useStudyTimer'
 import DemoBadge from '../demo/DemoBadge.jsx'
@@ -59,15 +58,6 @@ function useHashTab() {
     window.location.hash = `/${key}`
   }
   return [tab, navigate]
-}
-
-function dDay(examDate) {
-  if (!examDate) return null
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  const target = new Date(examDate)
-  target.setHours(0, 0, 0, 0)
-  return Math.round((target - today) / (1000 * 60 * 60 * 24))
 }
 
 export default function App() {
@@ -128,7 +118,6 @@ export default function App() {
         </div>
       ) : (
         <>
-          {tab === 'stats' && <BrandHeader profile={profile} />}
           {tab === 'home'   && <HomeDashboard key={`home:${resetTick}`} profile={profile} navigate={navigate} leavesBySubject={leavesBySubject}
                                  onResetProfile={resetProfile}
                                  onEssay={() => { setLearnIntent('essay'); navigate('learn'); }} />}
@@ -139,37 +128,13 @@ export default function App() {
                                  onPickUnit={(u) => { setJumpUnit(u); navigate('learn'); }} />}
           {tab === 'recall' && <RecallHub key={`recall:${resetTick}`} leavesBySubject={leavesBySubject}
                                  onPickUnit={(u) => { setJumpUnit(u); navigate('learn'); }} />}
-          {tab === 'stats'  && <StudyPlanner key={`stats:${resetTick}`} examDates={{ '초등임용_1차': profile?.examDate }} primaryExam="초등임용" profile={profile} />}
+          {tab === 'stats'  && <StudyPlanner key={`stats:${resetTick}`} examDates={{ '초등임용_1차': profile?.examDate }} primaryExam="초등임용" profile={profile}
+                                 leavesBySubject={leavesBySubject} navigate={navigate} />}
           {tab === 'settings' && <Settings profile={profile} onResetProfile={resetProfile} onBack={() => navigate('home')} />}
           <BottomNav tab={tab} onNavigate={go} />
         </>
       )}
     </div>
-  )
-}
-
-function BrandHeader({ profile }) {
-  const dday = dDay(profile?.examDate)
-  return (
-    <header className="top-nav" style={{ justifyContent: 'space-between' }}>
-      <div className="header-brand" style={{ fontWeight: 800, fontSize: '1.25rem', color: 'var(--primary)' }}>이묭AI</div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <StreakBadge compact />
-        {dday != null && (
-          <div className={'header-dday' + (dday <= 30 ? ' header-dday-urgent' : '')}
-               style={{
-                 fontWeight: 700,
-                 fontSize: '0.85rem',
-                 padding: '4px 10px',
-                 background: 'var(--primary-light)',
-                 color: 'var(--primary)',
-                 borderRadius: '999px'
-               }}>
-            {dday > 0 ? `D-${dday}` : dday === 0 ? 'D-DAY' : `D+${-dday}`}
-          </div>
-        )}
-      </div>
-    </header>
   )
 }
 

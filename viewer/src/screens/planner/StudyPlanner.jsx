@@ -4,6 +4,8 @@ import { loadStudyTime, getDayStudyTime, getDaySubjects, getDaySlots } from '../
 import { fmtDuration, fmtClock, fmtHMS } from '../../lib/format';
 import { SUBJECTS } from '../../data/subjects';
 import ShareStudyCard from './ShareStudyCard.jsx';
+import StatsOverview, { RangeTabs } from './StatsOverview.jsx';
+import HubHeader from '../../components/HubHeader';
 import { brand, ink, line, surface, semantic } from '../../styles/tokens';
 
 const PLANNER_KEY = 'quiz-planner-v1';
@@ -41,7 +43,8 @@ const getPhaseGuide = (examDate) => {
   return { phase: '준비기', tip: '시험일 기준 학습 계획 수립.' };
 };
 
-export default function StudyPlanner({ examDates = {}, primaryExam = '초등임용', profile = null }) {
+export default function StudyPlanner({ examDates = {}, primaryExam = '초등임용', profile = null,
+  leavesBySubject = {}, navigate }) {
   const [plans, setPlans] = useState(loadPlans);
   const [study] = useState(loadStudyTime);
   const now = new Date();
@@ -50,6 +53,7 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
   const [selected, setSelected] = useState(todayKey);
   const [draft, setDraft] = useState('');
   const [shareDate, setShareDate] = useState(null);
+  const [range, setRange] = useState('week');
 
   const update = (next) => { setPlans(next); savePlans(next); };
   const addItem = () => {
@@ -105,7 +109,10 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
 
   return (
     <div className="app-container">
-      <main className="main-content" style={{ marginTop: '16px' }}>
+      <HubHeader title="학습 통계" action={<RangeTabs range={range} onRange={setRange} />} />
+      <main className="main-content">
+        <StatsOverview profile={profile} leavesBySubject={leavesBySubject} range={range}
+          onWeakness={() => navigate?.('recall')} />
         {(() => {
           const t = getDayStudyTime(todayKey);
           const total = t.ai + t.quiz;
