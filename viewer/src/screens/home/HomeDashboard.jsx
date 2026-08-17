@@ -6,6 +6,7 @@ import { snapshot } from '../../data/stores/drillStore';
 import { unitIdsWithDrill } from '../../data/recommend';
 import ShareStudyCard from '../planner/ShareStudyCard';
 import HubHeader from '../../components/HubHeader';
+import SkillRadar from '../../components/viz/SkillRadar.jsx';
 import { palette, brand, ink, line, surface, gradient, shadow } from '../../styles/tokens';
 
 const BLUE = brand.primary;
@@ -256,36 +257,6 @@ function ScoreGauge({ score, goal, acc, mastered }) {
 }
 function GaugeSub({ v, l }) {
   return <div style={{ textAlign: 'center' }}><div style={{ fontSize: '0.86rem', fontWeight: 800, color: ink.body }}>{v}</div><div style={{ fontSize: '0.58rem', color: ink.faint }}>{l}</div></div>;
-}
-
-function SkillRadar({ axes }) {
-  const n = axes.length, size = 260, cx = size / 2, cy = size / 2 + 6, R = 88;
-  const pt = (i, frac) => {
-    const a = -90 + i * (360 / n);
-    return [cx + R * frac * Math.cos(a * Math.PI / 180), cy + R * frac * Math.sin(a * Math.PI / 180)];
-  };
-  const poly = (key) => axes.map((ax, i) => pt(i, (ax[key] || 0) / 100).join(',')).join(' ');
-  return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <svg width={size} height={size + 10}>
-        {[0.2, 0.4, 0.6, 0.8, 1].map((g, i) => (
-          <polygon key={i} points={axes.map((_, j) => pt(j, g).join(',')).join(' ')} fill="none" stroke={line.base} strokeWidth={1} />
-        ))}
-        {axes.map((_, i) => { const [x, y] = pt(i, 1); return <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke={line.base} strokeWidth={1} />; })}
-        <polygon points={poly('bench')} fill="none" stroke={GRAY} strokeWidth={2} strokeDasharray="4 3" />
-        <polygon points={poly('mine')} fill={BLUE + '33'} stroke={BLUE} strokeWidth={2} />
-        {axes.map((ax, i) => {
-          const [x, y] = pt(i, 1.16);
-          return (
-            <g key={i}>
-              <text x={x} y={y - 3} textAnchor="middle" fontSize="11" fontWeight="700" fill={ink.body}>{ax.label}</text>
-              <text x={x} y={y + 11} textAnchor="middle" fontSize="10.5" fontWeight="800" fill={BLUE}>{ax.mine}<tspan fill={ink.faint}>/{ax.bench}</tspan></text>
-            </g>
-          );
-        })}
-      </svg>
-    </div>
-  );
 }
 
 function SubjectBars({ data }) {

@@ -170,8 +170,8 @@ const { before, after, planner } = now.dashboard;
 const moved = Number(after.score) > 0 || after.weakCount > 0;
 if (moved) ok(`예측 점수 ${before.score} → ${after.score} · ${after.sub} · 스트릭 ${after.streak}일 · 취약단원 ${after.weakCount}`);
 else { bad(`학습해도 지표가 안 움직임 (점수 ${after.score}, 취약단원 ${after.weakCount})`); fail++; }
-if (planner.phase) ok(`플래너 시기가이드 "${planner.phase}" · 공부시간 ${planner.time}`);
-else { bad('플래너 시기 가이드가 안 뜸'); fail++; }
+if (planner.time) ok(`학습 통계 공부시간 ${planner.time} · 평균 정착도 ${planner.settle ?? '—'}%`);
+else { bad('학습 통계에 오늘 공부 시간이 안 뜸'); fail++; }
 
 console.log();
 if (fail) { console.log(`${c.r}${c.b}✗ 회귀 ${fail}건 — 이 단계는 되돌려야 합니다${c.x}\n`); process.exit(1); }

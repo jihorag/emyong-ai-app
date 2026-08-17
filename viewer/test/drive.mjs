@@ -245,11 +245,10 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   const planner = await page.evaluate(() => {
     const t = document.body.innerText;
     return {
-      phase: (t.match(/📍\s*(.+?)\s*시기 가이드/) || [])[1] || null,
+      settle: (t.match(/(\d+)%\s*\n?\s*평균 정착도/) || [])[1] || null,
       time: (t.match(/오늘 공부 시간\s*\n([\d:]+)/) || [])[1] || null,
     };
   });
-  // 제목을 지웠으므로 항상 있는 '오늘 공부 시간' 카드로 판정한다
   await seen('stats', async () => (await page.getByText('오늘 공부 시간').count()) > 0);
   await shot('07-planner');
 
@@ -289,6 +288,15 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
     return badge > 0 && seeded === '김임용';
   });
   await shot('10-demo-on');
+
+  // 데모 데이터는 전 과목에 걸쳐 있어 레이더가 실제로 그려지는 유일한 구간이다
+  await goTab('#/stats');
+  await seen('stats.radar', async () => {
+    const polys = await page.evaluate(() => document.querySelectorAll('svg polygon').length);
+    const avg = await page.getByText('평균 정착도').count();
+    return polys >= 7 && avg > 0;
+  });
+  await shot('10b-demo-stats');
 
   await page.getByRole('button', { name: '데모 모드' }).last().click();
   await page.waitForTimeout(500);

@@ -4,7 +4,7 @@ import { loadStudyTime, getDayStudyTime, getDaySubjects, getDaySlots } from '../
 import { fmtDuration, fmtClock, fmtHMS } from '../../lib/format';
 import { SUBJECTS } from '../../data/subjects';
 import ShareStudyCard from './ShareStudyCard.jsx';
-import StatsOverview, { RangeTabs } from './StatsOverview.jsx';
+import { RangeTabs, ProgressCard, WeakCard, StudyTimeCard, DdayCard } from './StatsOverview.jsx';
 import HubHeader from '../../components/HubHeader';
 import { brand, ink, line, surface, semantic } from '../../styles/tokens';
 
@@ -27,20 +27,6 @@ const daysUntil = (yyyymmdd) => {
   if (isNaN(d.getTime())) return null;
   const t = new Date(); t.setHours(0, 0, 0, 0);
   return Math.ceil((d - t) / 86400000);
-};
-
-const getPhaseGuide = (examDate) => {
-  const dday = daysUntil(examDate);
-  if (dday == null) return null;
-  const month = new Date().getMonth() + 1;
-  if (dday <= 7)   return { phase: '시험 임박',        tip: '최신 3개년 기출 다시 풀기. 시험 직전까지 인덱스카드 보기.' };
-  if (dday <= 30)  return { phase: '뽀개기 막판',      tip: '몰라노트 위주 회독. 모의고사 주 3~4회. 멘탈 케어.' };
-  if (dday <= 60)  return { phase: '본격 뽀개기',      tip: '텀 줄여가며 회독 (2주→1주). 약점 영역 집중.' };
-  if (dday <= 120) return { phase: '뽀개기 진입',      tip: '인강 종강. 기출 분석 + 세미 뽀개기 + 모의고사 시작.' };
-  if (month >= 5 && month <= 6) return { phase: '실습 / 인강 마무리', tip: '4월 실습 후 밀린 인강 따라잡기. 5월 논술 시작.' };
-  if (month >= 3 && month <= 4) return { phase: '인강 + 복습',        tip: '인강 안 밀리기. 내체표 노래로 미리 외우기.' };
-  if (month >= 1 && month <= 2) return { phase: '인강 시작',          tip: '백구 인강 따라가기. 내체표 (음·미·체) 노래 암기 시작.' };
-  return { phase: '준비기', tip: '시험일 기준 학습 계획 수립.' };
 };
 
 export default function StudyPlanner({ examDates = {}, primaryExam = '초등임용', profile = null,
@@ -96,10 +82,6 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
     return cands || null;
   }, [examDates, primaryExam]);
 
-  const phase = useMemo(
-    () => getPhaseGuide(profile?.examDate || examDates[`${primaryExam}_1차`] || examDates[primaryExam]),
-    [profile, examDates, primaryExam],
-  );
 
   const selList = (selected && plans[selected]) || [];
   const selLabel = selected ? (() => {
@@ -111,8 +93,6 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
     <div className="app-container">
       <HubHeader title="학습 통계" action={<RangeTabs range={range} onRange={setRange} />} />
       <main className="main-content">
-        <StatsOverview profile={profile} leavesBySubject={leavesBySubject} range={range}
-          onWeakness={() => navigate?.('recall')} />
         {(() => {
           const t = getDayStudyTime(todayKey);
           const total = t.ai + t.quiz;
@@ -147,17 +127,10 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
             </section>
           );
         })()}
-        {phase && (
-          <section style={{ background: surface.page, border: `1px solid ${line.strong}`, borderRadius: 16,
-            padding: '14px 16px', marginBottom: 14 }}>
-            <div style={{ fontSize: '0.86rem', fontWeight: 800, color: brand.primaryInk }}>
-              📍 {phase.phase} 시기 가이드
-            </div>
-            <div style={{ fontSize: '0.86rem', color: brand.primaryDeep, marginTop: 6, lineHeight: 1.55, fontWeight: 500 }}>
-              {phase.tip}
-            </div>
-          </section>
-        )}
+
+        <ProgressCard leavesBySubject={leavesBySubject} />
+        <WeakCard leavesBySubject={leavesBySubject} onReview={() => navigate?.('recall')} />
+        <StudyTimeCard range={range} />
         <section style={{ background: surface.white, borderRadius: 16, padding: 16,
           boxShadow: 'var(--shadow-md)', marginBottom: 14 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
@@ -357,6 +330,10 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
             </button>
           </div>
         </section>
+
+        <div style={{ marginTop: 14 }}>
+          <DdayCard profile={profile} />
+        </div>
       </main>
       <ShareStudyCard
         open={!!shareDate}

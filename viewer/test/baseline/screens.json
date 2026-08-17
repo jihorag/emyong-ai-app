@@ -21,6 +21,7 @@
   "stats": true,
   "settings": true,
   "demo.on": true,
+  "stats.radar": true,
   "demo.restored": true,
   "demo.off": true
 }
