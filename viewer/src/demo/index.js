@@ -1,14 +1,18 @@
 import { seedDemo } from './seed';
 import { installMockAi } from './mockAi';
 
+// ⚠ 시연 기간이라 기본값이 켜짐이다. 끄려면 설정에서 끄거나 주소에 ?demo=0 을 붙인다.
 const FLAG = 'demo-mode';
+const SEEDED = 'demo-seeded';
 const BACKUP = 'demo-backup-v1';
 
 const isAppData = (k) => k === 'profile' || k === 'quiz-studytime-v1' || k.startsWith('ailearn-');
 
 export function isDemoOn() {
-  try { return localStorage.getItem(FLAG) === '1'; } catch { return false; }
+  try { return (localStorage.getItem(FLAG) ?? '1') === '1'; } catch { return true; }
 }
+
+const isSeeded = () => { try { return localStorage.getItem(SEEDED) === '1'; } catch { return false; } };
 
 function appDataKeys() {
   const out = [];
@@ -26,12 +30,15 @@ function wipeAppData() {
 }
 
 export async function enterDemo() {
-  if (isDemoOn()) return;
+  if (isSeeded()) return;
   const backup = {};
   appDataKeys().forEach((k) => { backup[k] = localStorage.getItem(k); });
   try { localStorage.setItem(BACKUP, JSON.stringify(backup)); } catch { }
   wipeAppData();
-  try { localStorage.setItem(FLAG, '1'); } catch { }
+  try {
+    localStorage.setItem(FLAG, '1');
+    localStorage.setItem(SEEDED, '1');
+  } catch { }
   await seedDemo();
 }
 
@@ -58,7 +65,8 @@ export function exitDemo() {
   }
   try {
     localStorage.removeItem(BACKUP);
-    localStorage.removeItem(FLAG);
+    localStorage.removeItem(SEEDED);
+    localStorage.setItem(FLAG, '0');
   } catch { }
 }
 
@@ -73,8 +81,11 @@ export async function bootDemo() {
     if (q === '1' || q === '0') asked = q === '1';
   } catch { }
 
-  if (asked === true && !isDemoOn()) await enterDemo();
+  if (asked === true) { try { localStorage.setItem(FLAG, '1'); } catch { } }
   if (asked === false && isDemoOn()) exitDemo();
-  if (isDemoOn()) installMockAi();
+  if (isDemoOn()) {
+    await enterDemo();
+    installMockAi();
+  }
   return isDemoOn();
 }

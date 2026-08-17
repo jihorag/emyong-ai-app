@@ -1,6 +1,6 @@
 import { registerSW } from 'virtual:pwa-register';
 
-const CHECK_MS = 10 * 60 * 1000;
+const CHECK_MS = 3 * 60 * 1000;
 const RELOADED_KEY = 'ailearn-reloaded-build';
 
 let busy = false;
@@ -59,4 +59,6 @@ export function startUpdateWatch() {
     if (!document.hidden) checkVersion();
   });
   window.addEventListener('focus', checkVersion);
+  window.addEventListener('online', checkVersion);
+  window.addEventListener('pageshow', checkVersion);
 }

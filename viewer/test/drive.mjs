@@ -40,9 +40,10 @@ export async function drive(chromium, baseUrl, { screenshotDir = null } = {}) {
   };
   const seen = async (name, check) => { screens[name] = await check(); };
 
+  // ⚠ 데모 모드가 기본 켜짐이다. 회귀 검증은 실제 앱을 봐야 하므로 꺼진 상태로 시작한다.
+  await page.goto(`${baseUrl}?demo=0`, { waitUntil: 'networkidle' });
+  await page.evaluate(() => { localStorage.clear(); localStorage.setItem('demo-mode', '0'); });
   await page.goto(baseUrl, { waitUntil: 'networkidle' });
-  await page.evaluate(() => localStorage.clear());
-  await page.reload({ waitUntil: 'networkidle' });
 
   // ── 온보딩 ────────────────────────────────────────────────
   await seen('onboarding', async () => !!(await page.getByRole('button', { name: /좋아요, 시작할게요/ }).count()));
