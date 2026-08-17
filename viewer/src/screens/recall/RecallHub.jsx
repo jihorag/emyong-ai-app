@@ -68,7 +68,8 @@ export default function RecallHub({ leavesBySubject, onPickUnit }) {
               desc="간격이 지나 재등장할 때가 된 스제트"
             >
               {data.due.map((x) => (
-                <UnitRow key={x.unit.id} unit={x.unit} badge={`${x.count}장`} onClick={() => onPickUnit?.(x.unit)} />
+                <UnitRow key={x.unit.id} unit={x.unit} badge={`${x.count}장`} showSubject
+                  onClick={() => onPickUnit?.(x.unit)} />
               ))}
             </Group>
 
@@ -113,13 +114,16 @@ function Group({ icon, title, tone, count, unitLabel, desc, children }) {
   );
 }
 
-function UnitRow({ unit, badge, onClick }) {
+function UnitRow({ unit, badge, showSubject, onClick }) {
+  const rest = unit.path.slice(showSubject ? 1 : 0, 2).join(' · ');
   return (
     <button onClick={onClick} style={rowCard}>
       <span style={{ flex: 1, textAlign: 'left', minWidth: 0 }}>
         <span style={{ display: 'block', fontWeight: 700, fontSize: '0.92rem', color: ink.strongest }}>{unit.title}</span>
-        <span style={{ display: 'block', fontSize: '0.74rem', color: ink.faint, marginTop: 3 }}>
-          {unit.path.slice(0, 2).join(' · ')}
+        <span style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 5 }}>
+          {showSubject && <span style={subjectChip}>{unit.path[0]}</span>}
+          {rest && <span style={{ fontSize: '0.74rem', color: ink.faint, minWidth: 0,
+            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{rest}</span>}
         </span>
       </span>
       <span style={{ fontSize: '0.76rem', fontWeight: 700, color: brand.primaryDeep, flexShrink: 0 }}>{badge}</span>
@@ -132,6 +136,11 @@ const rowCard = {
   display: 'flex', alignItems: 'center', gap: 10, width: '100%',
   background: surface.card, border: `1px solid ${line.base}`, borderRadius: 14,
   padding: '13px 16px', boxShadow: shadow.sm, cursor: 'pointer',
+};
+const subjectChip = {
+  fontSize: '0.72rem', fontWeight: 800, color: brand.primaryInk, flexShrink: 0,
+  border: `1px solid ${brand.primary}`, background: brand.tintSoft,
+  borderRadius: 7, padding: '2px 8px', lineHeight: 1.5,
 };
 const pill = { fontSize: '0.72rem', fontWeight: 800, padding: '2px 9px', borderRadius: 999 };
 const TONE = {
