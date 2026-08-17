@@ -4,7 +4,7 @@ import { loadStudyTime, getDayStudyTime, getDaySubjects, getDaySlots } from '../
 import { fmtDuration, fmtClock, fmtHMS } from '../../lib/format';
 import { SUBJECTS } from '../../data/subjects';
 import ShareStudyCard from './ShareStudyCard.jsx';
-import { RangeTabs, ProgressCard, WeakCard, StudyTimeCard, DdayCard } from './StatsOverview.jsx';
+import { ProgressCard, WeakCard, DdayCard } from './StatsOverview.jsx';
 import HubHeader from '../../components/HubHeader';
 import { brand, ink, line, surface, semantic } from '../../styles/tokens';
 
@@ -39,7 +39,6 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
   const [selected, setSelected] = useState(todayKey);
   const [draft, setDraft] = useState('');
   const [shareDate, setShareDate] = useState(null);
-  const [range, setRange] = useState('week');
 
   const update = (next) => { setPlans(next); savePlans(next); };
   const addItem = () => {
@@ -74,6 +73,11 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
     return arr;
   }, [view]);
 
+  const peakMin = useMemo(() => Math.max(1, ...cells.filter(Boolean).map((n) => {
+    const s = study[keyOf(view.y, view.m, n)];
+    return s ? Math.round(((s.ai || 0) + (s.quiz || 0)) / 60) : 0;
+  })), [cells, study, view]);
+
   const dday = useMemo(() => {
     const cands = [
       { label: '1차', d: daysUntil(examDates[`${primaryExam}_1차`] || examDates[primaryExam]) },
@@ -91,7 +95,7 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
 
   return (
     <div className="app-container">
-      <HubHeader title="학습 통계" action={<RangeTabs range={range} onRange={setRange} />} />
+      <HubHeader title="학습 통계" />
       <main className="main-content">
         {(() => {
           const t = getDayStudyTime(todayKey);
@@ -130,7 +134,6 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
 
         <ProgressCard leavesBySubject={leavesBySubject} />
         <WeakCard leavesBySubject={leavesBySubject} onReview={() => navigate?.('recall')} />
-        <StudyTimeCard range={range} />
         <section style={{ background: surface.white, borderRadius: 16, padding: 16,
           boxShadow: 'var(--shadow-md)', marginBottom: 14 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
@@ -184,12 +187,17 @@ export default function StudyPlanner({ examDates = {}, primaryExam = '초등임�
                   )}
                   <span style={{ fontSize: '0.8rem', fontWeight: isToday ? 800 : 600, marginTop: 2,
                     color: isToday ? brand.primary : dow === 0 ? semantic.danger : dow === 6 ? brand.primaryDeep : ink.body }}>{d}</span>
-                  {sMin > 0 && (
-                    <span style={{ marginTop: 'auto', marginBottom: 3, fontSize: '0.54rem', fontWeight: 800,
-                      color: brand.primary }}>
-                      {sMin >= 60 ? `${(sMin / 60).toFixed(1)}h` : `${sMin}분`}
+                  <span style={{ marginTop: 'auto', width: '100%', display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', gap: 2 }}>
+                    <span style={{ fontSize: '0.54rem', fontWeight: 800, color: brand.primary, lineHeight: 1 }}>
+                      {sMin > 0 ? (sMin >= 60 ? `${(sMin / 60).toFixed(1)}h` : `${sMin}분`) : ''}
                     </span>
-                  )}
+                    <span style={{ width: '82%', height: 4, borderRadius: 999, background: line.soft, overflow: 'hidden' }}>
+                      <span style={{ display: 'block', height: '100%', borderRadius: 999,
+                        width: sMin > 0 ? `${Math.max(14, (sMin / peakMin) * 100)}%` : 0,
+                        background: isToday ? brand.primaryDeep : brand.primary }} />
+                    </span>
+                  </span>
                 </button>
               );
             })}

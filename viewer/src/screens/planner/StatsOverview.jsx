@@ -1,25 +1,16 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { SUBJECTS } from '../../data/subjects';
 import { snapshot } from '../../data/stores/drillStore';
 import { unitIdsWithDrill } from '../../data/recommend';
 import { getMastery, getAllAnswerHistories, detectWeaknesses } from '../../data/stores/learningStore';
-import { loadStudyTime, getDayTotal, dayKey } from '../../data/stores/studyTime';
-import { fmtDuration } from '../../lib/format';
+import { dayKey } from '../../data/stores/studyTime';
 import SkillRadar from '../../components/viz/SkillRadar.jsx';
 import { brand, ink, line, surface, semantic, shadow } from '../../styles/tokens';
 
 // ⚠ 합격권은 데이터가 아니라 우리가 정한 기준선이다. 근거가 생기면 과목별로 나눈다.
 const PASS_LINE = 75;
 
-const RANGES = [
-  { key: 'week', label: '주' },
-  { key: 'month', label: '월' },
-  { key: 'all', label: '전체' },
-];
-
 const PLANNER_KEY = 'quiz-planner-v1';
-const WD = ['일', '월', '화', '수', '목', '금', '토'];
-const pad = (n) => String(n).padStart(2, '0');
 
 const daysUntil = (ymd) => {
   if (!ymd) return null;
@@ -28,17 +19,6 @@ const daysUntil = (ymd) => {
   const t = new Date(); t.setHours(0, 0, 0, 0);
   return Math.ceil((d - t) / 86400000);
 };
-
-export function RangeTabs({ range, onRange }) {
-  return (
-    <div style={{ display: 'flex', gap: 2, background: surface.sunken, borderRadius: 10, padding: 3 }}>
-      {RANGES.map((r) => (
-        <button key={r.key} onClick={() => onRange(r.key)}
-          style={{ ...rangeBtn, ...(range === r.key ? rangeBtnOn : null) }}>{r.label}</button>
-      ))}
-    </div>
-  );
-}
 
 export function ProgressCard({ leavesBySubject = {} }) {
   const subjects = useMemo(() => {
@@ -139,60 +119,6 @@ export function WeakCard({ leavesBySubject = {}, onReview }) {
   );
 }
 
-export function StudyTimeCard({ range }) {
-  const [openMonth, setOpenMonth] = useState(false);
-  const bars = useMemo(
-    () => (range === 'week' ? weekBars() : range === 'month' ? monthBars() : allBars()),
-    [range],
-  );
-  const total = bars.reduce((n, b) => n + b.secs, 0);
-  const peak = Math.max(1, ...bars.map((b) => b.secs));
-  const totalLabel = range === 'week' ? '이번 주' : range === 'month' ? '이번 달' : '전체';
-
-  return (
-    <section style={card}>
-      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 16 }}>
-        <div style={{ ...cardTitle, marginBottom: 0 }}>공부 시간</div>
-        <span style={{ fontSize: '0.78rem', color: ink.muted, fontWeight: 600 }}>
-          {totalLabel} {total > 0 ? fmtDuration(total) : '0분'}
-        </span>
-      </div>
-      {!bars.length ? (
-        <div style={emptyLine}>기록이 아직 없어요</div>
-      ) : (
-        <div style={{ display: 'flex', alignItems: 'stretch', gap: range === 'month' ? 2 : 8, height: 108 }}>
-          {bars.map((b, i) => (
-            <div key={i} style={{ flex: 1, height: '100%', display: 'flex', flexDirection: 'column',
-              alignItems: 'center', gap: 6, minWidth: 0 }}>
-              <div style={{ flex: 1, width: '100%', display: 'flex', alignItems: 'flex-end' }}>
-                <div title={fmtDuration(b.secs)} style={{
-                  width: '100%',
-                  height: b.secs ? `${Math.max(8, (b.secs / peak) * 100)}%` : 7,
-                  borderRadius: range === 'month' ? 2 : 6,
-                  background: b.secs ? (b.today ? brand.primaryDeep : brand.primary) : line.base,
-                }} />
-              </div>
-              <span style={{ fontSize: '0.68rem', color: b.today ? brand.primaryInk : ink.faint,
-                fontWeight: b.today ? 800 : 500, whiteSpace: 'nowrap' }}>{b.label}</span>
-            </div>
-          ))}
-        </div>
-      )}
-      {range === 'month' && (
-        <button onClick={() => setOpenMonth((v) => !v)}
-          style={{ ...reviewBtn, color: brand.primaryInk, marginTop: 12 }}>
-          {openMonth ? '날짜별 접기' : '날짜별 보기'}
-        </button>
-      )}
-      {range === 'month' && openMonth && (
-        <div style={{ marginTop: 8, fontSize: '0.76rem', color: ink.muted, lineHeight: 1.9 }}>
-          {bars.map((b, i) => (b.secs ? <div key={i}>{i + 1}일 · {fmtDuration(b.secs)}</div> : null))}
-        </div>
-      )}
-    </section>
-  );
-}
-
 export function DdayCard({ profile }) {
   const plan = useMemo(() => nextPlan(), []);
   const examDday = daysUntil(profile?.examDate);
@@ -206,41 +132,7 @@ export function DdayCard({ profile }) {
   );
 }
 
-function weekBars() {
-  const now = new Date();
-  const monday = new Date(now);
-  monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
-  return Array.from({ length: 7 }, (_, i) => {
-    const d = new Date(monday);
-    d.setDate(monday.getDate() + i);
-    return { label: WD[d.getDay()], secs: getDayTotal(dayKey(d)), today: dayKey(d) === dayKey(now) };
-  });
-}
 
-function monthBars() {
-  const now = new Date();
-  const last = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-  return Array.from({ length: last }, (_, i) => {
-    const d = new Date(now.getFullYear(), now.getMonth(), i + 1);
-    return {
-      label: (i + 1) % 7 === 1 ? String(i + 1) : '',
-      secs: getDayTotal(dayKey(d)),
-      today: dayKey(d) === dayKey(now),
-    };
-  });
-}
-
-function allBars() {
-  const all = loadStudyTime();
-  const byMonth = new Map();
-  Object.entries(all).forEach(([k, v]) => {
-    const m = k.slice(0, 7);
-    byMonth.set(m, (byMonth.get(m) || 0) + (v?.ai || 0) + (v?.quiz || 0));
-  });
-  const now = `${new Date().getFullYear()}-${pad(new Date().getMonth() + 1)}`;
-  return [...byMonth.entries()].sort()
-    .map(([m, secs]) => ({ label: `${Number(m.slice(5))}월`, secs, today: m === now }));
-}
 
 function nextPlan() {
   let plans = {};
@@ -319,11 +211,5 @@ const weakFill = {
   position: 'absolute', left: 0, top: 0, bottom: 0, borderRadius: 999, background: semantic.danger,
 };
 const weakGoal = { position: 'absolute', top: 0, bottom: 0, width: 2, background: ink.faint };
-
-const rangeBtn = {
-  padding: '5px 13px', borderRadius: 8, border: 'none', background: 'none',
-  fontSize: '0.78rem', fontWeight: 700, color: ink.muted, cursor: 'pointer',
-};
-const rangeBtnOn = { background: brand.primary, color: ink.onBrand };
 
 const ddayRow = { display: 'flex', alignItems: 'center', gap: 10, padding: '12px 0' };
